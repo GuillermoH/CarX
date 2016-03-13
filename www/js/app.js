@@ -52,7 +52,13 @@ angular.module('starter', ['ionic', 'starter.controllers' , 'starter.services'])
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-
+/*---------AGREGADO POR BERNI------------
+    .state('app', {
+      url: '/app',
+      abstract: false,
+      templateUrl: 'templates/ClientView.html',
+      controller: 'ClientesCtrl'
+    })*/
 //--------------------------------------
 
  .state('app.login', {

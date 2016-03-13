@@ -52,7 +52,7 @@ angular.module('starter.controllers', [])
 	$scope.profiles = Profiles.all();
 })
 
-.controller('ClientesCtrl', function($scope){/* ESTO ES LO QUE AGREGUE EN LA CLASE! */
+.controller('ClientesCtrl', function($scope, $location){/* ESTO ES LO QUE AGREGUE EN LA CLASE! */
 
   $scope.model ={
 
@@ -82,6 +82,10 @@ angular.module('starter.controllers', [])
     ]
   };
 
-
+  $scope.debug = function(){
+    console.log("El boton ha sido pulsado");
+    $location.path('/www/templates/ClientView.html');
+    console.log("Ingreso VISTA DE CLIENTES")
+  }
 });
 
