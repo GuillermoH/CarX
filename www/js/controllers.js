@@ -14,7 +14,7 @@ angular.module('starter.controllers', [])
 
   //--------------------------------------------
    $scope.login = function(user) {
-			
+
 		if(typeof(user)=='undefined'){
 			$scope.showAlert('Por favor completar todos los campos.');
 			return false;
@@ -25,7 +25,7 @@ angular.module('starter.controllers', [])
 		}else{
 			$scope.showAlert('Usuario o clave inválida.');
 		}
-		
+
 	};
   //--------------------------------------------
   $scope.logout = function() {   $location.path('/app/login');   };
@@ -50,5 +50,36 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope, $stateParams , Profiles) {
 	$scope.profiles = Profiles.all();
+})
+
+.controller('ClientesCtrl', function($scope){/* ESTO ES LO QUE AGREGUE EN LA CLASE! */
+
+  $scope.model ={
+
+    clientes:[
+      {
+        'nombre': 'Bernardo',
+        'apellido':'Bello',
+        'vehiculo':'EcoSport',
+        'año':'2005',
+        'placa':'MDX34A'
+      },
+      {
+        'nombre': 'Guillermo',
+        'apellido':'Hellmund',
+        'vehiculo':'Meru',
+        'año':'2005',
+        'placa':'VIRGEN'
+      },
+      {
+        'nombre': 'Nelson',
+        'apellido':'Candia',
+        'vehiculo':'Corola',
+        'año':'2008',
+        'placa':'WEABO'
+      }
+
+    ]
+  };
 });
 
