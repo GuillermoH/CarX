@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<ion-view view-title="Cars View" hide-back-button="true">
+  <ion-pane ng-controller="ClientesCtrl">
+    <ion-content>
+     <ion-list>
+       <ion-item ng-repeat="cliente in model.clientes">
+         <div class="item item-button-right">
+           <h2>{{ cliente.nombre }} {{cliente.apellido}}</h2>
+           <p>{{ cliente.vehiculo }}</p>
+           <p>{{ cliente.placa }}</p>
+           <button class="button button-dash button-outline button-calm "></button>
+         </div>
+       </ion-item>
+     </ion-list>
+    </ion-content>
+  </ion-pane>
+
+</ion-view>
