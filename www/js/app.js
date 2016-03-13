@@ -26,8 +26,8 @@ angular.module('starter', ['ionic', 'starter.controllers' , 'starter.services'])
 	  $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
 		  $rootScope.authStatus = toState.authStatus;
 		  if($rootScope.authStatus){
-			  
-			
+
+
 		  }
     });
 
@@ -38,7 +38,7 @@ angular.module('starter', ['ionic', 'starter.controllers' , 'starter.services'])
 			$timeout(function(){
 				angular.element(document.querySelector('#leftMenu' )).removeClass("hide");
 			},1000);
-		}	
+		}
 	});
 
 })
@@ -94,6 +94,16 @@ angular.module('starter', ['ionic', 'starter.controllers' , 'starter.services'])
         'menuContent': {
           templateUrl: 'templates/profiles.html',
           controller: 'ProfilesCtrl'
+        }
+      }
+    })
+
+    .state('app.carsview', {    //Agregue ITEM a la lista del menu linkeado a la clase menu.html y controller.js
+      url: '/carsview',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/CarsView.html',
+          controller: 'ClientesCtrl'
         }
       }
     })
