@@ -23,9 +23,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', end
 
 .button-dash{
     border-radius: 25px;
-    background: #73AD21;
     padding: 20px;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
 }
 

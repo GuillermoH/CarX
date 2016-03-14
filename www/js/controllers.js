@@ -60,23 +60,26 @@ angular.module('starter.controllers', [])
       {
         'nombre': 'Bernardo',
         'apellido':'Bello',
-        'vehiculo':'EcoSport',
+        'vehiculo':'Range Rover',
         'año':'2005',
-        'placa':'MDX34A'
+        'placa':'MDX34A',
+        'img':'/img/RR2016.png'
       },
       {
         'nombre': 'Guillermo',
         'apellido':'Hellmund',
         'vehiculo':'Meru',
         'año':'2005',
-        'placa':'VIRGEN'
+        'placa':'VIRGEN',
+        'img':'/img/RR2016.png'
       },
       {
         'nombre': 'Nelson',
         'apellido':'Candia',
         'vehiculo':'Corola',
         'año':'2008',
-        'placa':'WEABO'
+        'placa':'WEABO',
+        'img':'/img/RR2016.png'
       }
 
     ]
@@ -84,7 +87,7 @@ angular.module('starter.controllers', [])
 
   $scope.debug = function(){
     console.log("El boton ha sido pulsado");
-    $location.path('/www/templates/ClientView.html');
+    $location.path('/app/clientview');
     console.log("Ingreso VISTA DE CLIENTES")
   }
 });

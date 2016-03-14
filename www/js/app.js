@@ -52,13 +52,7 @@ angular.module('starter', ['ionic', 'starter.controllers' , 'starter.services'])
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-/*---------AGREGADO POR BERNI------------
-    .state('app', {
-      url: '/app',
-      abstract: false,
-      templateUrl: 'templates/ClientView.html',
-      controller: 'ClientesCtrl'
-    })*/
+
 //--------------------------------------
 
  .state('app.login', {
@@ -109,6 +103,17 @@ angular.module('starter', ['ionic', 'starter.controllers' , 'starter.services'])
       views: {
         'menuContent': {
           templateUrl: 'templates/CarsView.html',
+          controller: 'ClientesCtrl'
+        }
+      }
+    })
+
+    // ---------AGREGADO POR BERNI------------
+    .state('app.clientview', {
+      url: '/clientview',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/ClientView.html',
           controller: 'ClientesCtrl'
         }
       }
