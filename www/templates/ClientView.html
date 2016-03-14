@@ -1,16 +1,58 @@
-<!DOCTYPE html>
-<ion-view view-title="Client View" hide-back-button="false" >
+<!--<!DOCTYPE html>-->
+<!--<ion-view view-title="Client View" hide-back-button="false" >-->
 
-  <ion-pane ng-controller="ClientesCtrl">
-    <div class="bar bar-footer bar-light">
-      <ion-content >
-        <ion-item>
-        <img src=" /img/RR2016.png" alt="">
-        </ion-item>
+  <!--<ion-pane ng-controller="ClientesCtrl">-->
+    <!--<div class="bar bar-footer bar-light">-->
+      <!--<ion-content >-->
+        <!--<ion-item>-->
+        <!---->
+        <!--</ion-item>-->
 
-      </ion-content>
-      <div class="title">BOTON</div>
+      <!--</ion-content>-->
+      <!--<div class="title">BOTON</div>-->
+    <!--</div>-->
+  <!--</ion-pane>-->
+
+<!--</ion-view>-->
+<ion-view view-title="Perfil">
+  <ion-content>
+
+    <div class="list card">
+
+      <div class="item item-avatar">
+        <img src="http://i1275.photobucket.com/albums/y447/guillohell/2-02_zpsn6w4hwnt.png">
+        <h2>Nombre</h2>
+        <p>{{profile.deseg}}</p>
+      </div>
+
+      <div class="item item-body">
+        <img class="full-image" src="http://i1275.photobucket.com/albums/y447/guillohell/2-02_zpsn6w4hwnt.png">
+        <p>
+         Aqui va la descripcion que se va a usar para el perfil, donde el taller puede escribir cualquier informacion pertinente y que el cliente puede ver.
+        </p>
+        <ion-list>
+          <ion-item>Modelo: lancer</ion-item>
+          <ion-item>Ano: 2005</ion-item>
+          <ion-item>Dueno: Pedro Perez</ion-item>
+          <ion-item>Placa: sdf456</ion-item>
+          <ion-item>telefono: 123456789</ion-item>
+          <ion-item>email: pperez@gmail.com</ion-item>
+          <ion-item>fecha de ingreso: 15/02/2016</ion-item>
+          <ion-item>status: procesando</ion-item>
+        </ion-list>
+        <p>
+          <a href="#" class="subdued">1 Arreglo listo</a>
+          <a href="#" class="subdued">5 Arreglos por terminar</a>
+        </p>
+      </div>
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="#"> <i class="icon ion-iphone"></i> Llamar </a>
+        <a class="tab-item" href="#"> <i class="icon ion-at"></i> E-mail</a>
+        <a class="tab-item" href="#"> <i class="icon ion-chatbox-working"></i>Chat</a>
+      </div>
+
     </div>
-  </ion-pane>
 
+  </ion-content>
 </ion-view>
