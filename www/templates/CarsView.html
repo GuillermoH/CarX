@@ -3,13 +3,12 @@
   <ion-pane ng-controller="ClientesCtrl">
     <ion-content>
      <ion-list>
-       <ion-item ng-repeat="cliente in model.clientes">
+       <ion-item ng-repeat="cliente in model.clientes" href="#/app/clientview">
          <div class="item item-button-right">
            <h2>{{ cliente.nombre }} {{cliente.apellido}}</h2>
            <p>{{ cliente.vehiculo }}</p>
            <p>{{ cliente.placa }}</p>
-           <button class="button button-dash button-outline button-calm " ng-click="debug()">
-             <a href="CarX\www\templates\ClientView.html"></a>
+           <button class="button button-dash button-outline button-calm " >
            </button>
          </div>
        </ion-item>
