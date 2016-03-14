@@ -29,7 +29,3 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', end
     height: 100px;
 }
 
- .item{
-     min-height: 120px;
-     overflow: hidden;
- }
