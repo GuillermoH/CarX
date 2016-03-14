@@ -52,43 +52,67 @@ angular.module('starter.controllers', [])
 	$scope.profiles = Profiles.all();
 })
 
-.controller('ClientesCtrl', function($scope, $location){/* ESTO ES LO QUE AGREGUE EN LA CLASE! */
+.controller('ClientesCtrl', function($scope, ClientesService){/* ESTO ES LO QUE AGREGUE EN LA CLASE! */
+    $scope.carros = [];
+    $scope.input = {};
 
-  $scope.model ={
 
-    clientes:[
-      {
-        'nombre': 'Bernardo',
-        'apellido':'Bello',
-        'vehiculo':'Range Rover',
-        'año':'2005',
-        'placa':'MDX34A',
-        'img':'/img/RR2016.png'
-      },
-      {
-        'nombre': 'Guillermo',
-        'apellido':'Hellmund',
-        'vehiculo':'Meru',
-        'año':'2005',
-        'placa':'VIRGEN',
-        'img':'/img/RR2016.png'
-      },
-      {
-        'nombre': 'Nelson',
-        'apellido':'Candia',
-        'vehiculo':'Corola',
-        'año':'2008',
-        'placa':'WEABO',
-        'img':'/img/RR2016.png'
-      }
+    function getAllCarros(){
+        ClientesService.getCarros().then(function(result){
+            $scope.carros = result.data.data;
+        });
+    }
 
-    ]
-  };
+    $scope.getCarro = function (id) {
+        ClientesService.getCarro(id).then(function(result){
+            $scope.carro = result.data.data;
+        });
+    }
 
-  $scope.debug = function(){
-    console.log("El boton ha sido pulsado");
-    $location.path('/app/clientview');
-    console.log("Ingreso VISTA DE CLIENTES")
-  }
+    $scope.deleteCarro = function (id) {
+        ClientesService.deleteCarro(id).then(function(result){
+            getAllCarros();
+        });
+    }
+
+
+
+    getAllCarros();
+  //$scope.model ={
+  //
+  //  clientes:[
+  //    {
+  //      'nombre': 'Bernardo',
+  //      'apellido':'Bello',
+  //      'vehiculo':'Range Rover',
+  //      'año':'2005',
+  //      'placa':'MDX34A',
+  //      'img':'/img/RR2016.png'
+  //    },
+  //    {
+  //      'nombre': 'Guillermo',
+  //      'apellido':'Hellmund',
+  //      'vehiculo':'Meru',
+  //      'año':'2005',
+  //      'placa':'VIRGEN',
+  //      'img':'/img/RR2016.png'
+  //    },
+  //    {
+  //      'nombre': 'Nelson',
+  //      'apellido':'Candia',
+  //      'vehiculo':'Corola',
+  //      'año':'2008',
+  //      'placa':'WEABO',
+  //      'img':'/img/RR2016.png'
+  //    }
+  //
+  //  ]
+  //};
+  //
+  //$scope.debug = function(){
+  //  console.log("El boton ha sido pulsado");
+  //  $location.path('/app/clientview');
+  //  console.log("Ingreso VISTA DE CLIENTES")
+  //}
 });
 

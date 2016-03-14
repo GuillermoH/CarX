@@ -2,15 +2,38 @@
 <ion-view view-title="Cars View" hide-back-button="true">
   <ion-pane ng-controller="ClientesCtrl">
     <ion-content>
-     <ion-list>
-       <ion-item ng-repeat="cliente in model.clientes" href="#/app/clientview">
-         <div class="item item-button-right">
-           <h2>{{ cliente.nombre }} {{cliente.apellido}}</h2>
-           <p>{{ cliente.vehiculo }}</p>
-           <p>{{ cliente.placa }}</p>
-           <button class="button button-dash button-outline button-calm " >
-           </button>
-         </div>
+     <ion-list can-swipe="true">
+       <ion-item ng-repeat="items in carros" class="item-thumbnail-right" ng-click="getCarro(items.id)" href="#/app/clientview">
+         <img ng-src="{{items.img_url}}" >
+         <h2>{{items.nombre}} {{items.apellido}}</h2>
+
+         <p >
+					<span >
+						<i class="ion ion-android-car" ></i >
+						{{items.modelo}}</span >
+         </p >
+         <p >
+           <i class="ion ion-closed-captioning" ></i >
+           {{items.placa}}
+         </p >
+         <p >
+					<span >
+						<i class="ion ion-ios-pulse" ></i >
+						{{items.ano | number:"0"}}</span >
+					<span >
+						<i class="ion ion-ios-information-outline" ></i >
+						{{items.status}}</span >
+         </p >
+
+         <!--<div class="item item-button-right">-->
+           <!--<h2>{{ cliente.nombre }} {{cliente.apellido}}</h2>-->
+           <!--<p>{{ cliente.vehiculo }}</p>-->
+           <!--<p>{{ cliente.placa }}</p>-->
+           <!--<button class="button button-dash button-outline button-calm " >-->
+           <!--</button>-->
+         <!--</div>-->
+
+         <ion-option-button class="button-assertive" ng-click="deleteCarro(items.id)" >Borrar</ion-option-button>
        </ion-item>
      </ion-list>
     </ion-content>

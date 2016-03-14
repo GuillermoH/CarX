@@ -52,4 +52,38 @@ angular.module('starter.services', [])
       return null;
     }
   };
+})
+
+
+.service('ClientesService', function($http, Backand){
+  var baseUrl = '/1/objects/';
+  var objectName = 'Carro/';
+
+  function getUrl() {
+    return Backand.getApiUrl() + baseUrl + objectName;
+  }
+
+  function getUrlForId(id) {
+    return getUrl() + id;
+  }
+
+  getCarros = function () {
+    return $http.get(getUrl());
+  };
+
+  getCarro = function(id){
+    return $http.get(getUrlForId(id));
+  };
+
+
+  deleteCarro = function (id) {
+    return $http.delete(getUrlForId(id));
+  };
+
+  return {
+    getCarros: getCarros,
+    getCarro: getCarro,
+    //addTodo: addTodo,
+    deleteCarro: deleteCarro
+  }
 });
