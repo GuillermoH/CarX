@@ -119,6 +119,16 @@ angular.module('starter', ['ionic','backand', 'starter.controllers' , 'starter.s
       }
     })
 
+    .state('app.addClientView',{
+      url: '/addClientView',
+      views:{
+        'menuContent':{
+          templateUrl: 'templates/CreateClient.html',
+          controller: 'ClientesCtrl'
+        }
+      }
+    })
+
   .state('app.profile', {
     url: '/profile/:profileId',
     views: {
