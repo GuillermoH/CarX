@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<ion-view view-title="Cars View" hide-back-button="true">
+<ion-view view-title="Cars View" hide-back-button="true" >
+  <ion-nav-buttons side="right" > <!-- Agregado de Boton addClient LeBEEEEERNS -->
+    <a id="addClient" class="button button-icon button-clear ion-plus"  href="#/app/addClientView"></a>
+  </ion-nav-buttons>
   <ion-pane ng-controller="ClientesCtrl">
     <ion-content>
      <ion-list can-swipe="true">
