@@ -76,7 +76,6 @@ angular.module('starter.controllers', [])
     }
 
 
-
     getAllCarros();
   //$scope.model ={
   //
@@ -114,5 +113,26 @@ angular.module('starter.controllers', [])
   //  $location.path('/app/clientview');
   //  console.log("Ingreso VISTA DE CLIENTES")
   //}
-});
+})
+
+//---------- Agregado Berni 21/3------------------------ Pop Up CEDULA -----------------------------------
+.controller('PopupCtrl',function($scope, $ionicPopup, $timeout){
+
+  $scope.showPopup = function() {
+    $scope.data = {}
+
+
+    var cedulaPopup = $ionicPopup.show({
+
+      template:'<input type = "text">',
+      title: 'Introduzca su cedula',
+      scope:$scope,
+      buttons: [{
+        text: '<b>Introducir</b>',
+        type: 'button-positive'
+      }]
+    });
+  }
+
+})
 
