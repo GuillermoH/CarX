@@ -54,6 +54,7 @@ angular.module('starter.controllers', [])
 
 .controller('ClientesCtrl', function($scope, ClientesService){/* ESTO ES LO QUE AGREGUE EN LA CLASE! */
     $scope.carros = [];
+    $scope.carro = [];
     $scope.input = {};
 
 
@@ -63,9 +64,10 @@ angular.module('starter.controllers', [])
         });
     }
 
-    $scope.getCarro = function (id) {
+    $scope.getProfile = function (id) {
+
         ClientesService.getCarro(id).then(function(result){
-            $scope.carro = result.data.data;
+            $scope.carro = result.data;
         });
     }
 
@@ -75,9 +77,7 @@ angular.module('starter.controllers', [])
         });
     }
 
-
     getAllCarros();
-
 })
 
 //---------- Agregado Berni 21/3------------------------ Pop Up CEDULA -----------------------------------
