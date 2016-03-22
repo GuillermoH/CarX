@@ -129,6 +129,16 @@ angular.module('starter', ['ionic','backand', 'starter.controllers' , 'starter.s
       }
     })
 
+    .state('app.addRepair',{
+      url:'/addRepair',
+      views:{
+        'menuContent':{
+          templateUrl: 'templates/CreateRepairs.html',
+          controller: 'ClientesCtrl'
+        }
+      }
+    })
+
   .state('app.profile', {
     url: '/profile/:profileId',
     views: {
