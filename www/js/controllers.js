@@ -59,7 +59,7 @@ angular.module('starter.controllers', [])
 
     function getAllCarros(){
         ClientesService.getCarros().then(function(result){
-            $scope.carros = result.data.data;
+            $scope.carros = result.data;
         });
     }
 
@@ -77,42 +77,7 @@ angular.module('starter.controllers', [])
 
 
     getAllCarros();
-  //$scope.model ={
-  //
-  //  clientes:[
-  //    {
-  //      'nombre': 'Bernardo',
-  //      'apellido':'Bello',
-  //      'vehiculo':'Range Rover',
-  //      'año':'2005',
-  //      'placa':'MDX34A',
-  //      'img':'/img/RR2016.png'
-  //    },
-  //    {
-  //      'nombre': 'Guillermo',
-  //      'apellido':'Hellmund',
-  //      'vehiculo':'Meru',
-  //      'año':'2005',
-  //      'placa':'VIRGEN',
-  //      'img':'/img/RR2016.png'
-  //    },
-  //    {
-  //      'nombre': 'Nelson',
-  //      'apellido':'Candia',
-  //      'vehiculo':'Corola',
-  //      'año':'2008',
-  //      'placa':'WEABO',
-  //      'img':'/img/RR2016.png'
-  //    }
-  //
-  //  ]
-  //};
-  //
-  //$scope.debug = function(){
-  //  console.log("El boton ha sido pulsado");
-  //  $location.path('/app/clientview');
-  //  console.log("Ingreso VISTA DE CLIENTES")
-  //}
+
 })
 
 //---------- Agregado Berni 21/3------------------------ Pop Up CEDULA -----------------------------------
