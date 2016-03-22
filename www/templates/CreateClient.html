@@ -1,8 +1,8 @@
 <ion-view view-title="Create Client"  hide-back-button="false">
 
-  <ion-pane>
+  <ion-pane ng-controller="PopupCtrl">
 
-    <ion-content>
+    <ion-content ng-init="showPopup()">
 
       <div class="list list-inset">
         <label class="item item-input">
@@ -30,9 +30,9 @@
           <input type="text" placeholder="Placa">
         </label>
       </div>
-      <button class="button button-full button-positive">
-        <font size="5"><strong>Submit</strong></font>
-      </button>
+      <a class="button button-block button-positive" href="#/app/addRepair">
+        <font size="5">Agregar Reparaciones</font>
+      </a>
     </ion-content>
 
   </ion-pane>

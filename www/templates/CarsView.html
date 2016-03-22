@@ -8,12 +8,12 @@
      <ion-list can-swipe="true">
        <ion-item ng-repeat="items in carros" class="item-thumbnail-right" ng-click="getCarro(items.id)" href="#/app/clientview">
          <img ng-src="{{items.img_url}}" >
-         <h2>{{items.nombre}} {{items.apellido}}</h2>
+         <h2>{{items.nombre}}</h2>
 
          <p >
 					<span >
 						<i class="ion ion-android-car" ></i >
-						{{items.modelo}}</span >
+						{{items.Modelo}}</span >
          </p >
          <p >
            <i class="ion ion-closed-captioning" ></i >
@@ -22,10 +22,15 @@
          <p >
 					<span >
 						<i class="ion ion-ios-pulse" ></i >
-						{{items.ano | number:"0"}}</span >
+						 {{items.ano | date: 'yyyy' }}</span >
 					<span >
 						<i class="ion ion-ios-information-outline" ></i >
-						{{items.status}}</span >
+                        <span ng-if="items.status == 'e'"> En espera </span>
+                        <span ng-if="items.status == 'l'"> Listo </span>
+						<span ng-if="items.status == 'p'"> Procesando </span>
+
+
+                    </span >
          </p >
 
          <!--<div class="item item-button-right">-->
