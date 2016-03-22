@@ -1,10 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<ion-view view-title="Create Client"  hide-back-button="false">
 
-</body>
-</html>
+  <ion-pane ng-controller="PopupCtrl">
+
+    <ion-content ng-init="showPopup()">
+
+      <div class="list list-inset">
+        <label class="item item-input">
+          <input type="text" placeholder="Nombre">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Apellido">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Cedula">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Telefono">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="e-mail">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Modelo">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Año">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Placa">
+        </label>
+      </div>
+      <a class="button button-block button-positive" href="#/app/addRepair">
+        <font size="5">Agregar Reparaciones</font>
+      </a>
+    </ion-content>
+
+  </ion-pane>
+
+</ion-view>
