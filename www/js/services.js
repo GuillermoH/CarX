@@ -54,6 +54,18 @@ angular.module('starter.services', [])
   };
 })
 
+.service('idService', function() {
+  return {
+    carId: {},
+    getId: function() {
+      return this.carId;
+    },
+    updateId: function(carId) {
+      this.carId = carId;
+    }
+  }
+})
+
 
 .service('ClientesService', function($http, Backand){
   var baseUrl = '/1/objects/';
@@ -88,10 +100,21 @@ angular.module('starter.services', [])
   getPhone = function(id){
     return $http ({
       method: 'GET',
-      url: Backand.getApiUrl() + '/1/query/data/getPhone',
+      url: Backand.getApiUrl() + '/1/query/data/getPhones',
       params: {
         parameters: {
-          carId: id
+          id: id
+        }
+      }
+    });
+  };
+  getEmails = function(id){
+    return $http ({
+      method: 'GET',
+      url: Backand.getApiUrl() + '/1/query/data/getEmail',
+      params: {
+        parameters: {
+          id: id
         }
       }
     });
@@ -109,7 +132,7 @@ angular.module('starter.services', [])
   //      });
   //};
 
-  getCarro = function(id){
+  getProfile = function(id){
     console.log('entro en geetCarro');
     return $http ({
       method: 'GET',
@@ -123,15 +146,16 @@ angular.module('starter.services', [])
   };
 
 
+
   deleteCarro = function (id) {
     return $http.delete(getUrlForId(id));
   };
 
   return {
     getCarros: getCarros,
-    getCarro: getCarro,
+    getProfile: getProfile,
     getPhone: getPhone,
-    //addTodo: addTodo,
+    getEmails: getEmails,
     deleteCarro: deleteCarro
   }
 });

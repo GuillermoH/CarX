@@ -4,9 +4,9 @@
     <a id="addClient" class="button button-icon button-clear ion-plus"  href="#/app/addClientView"></a>
   </ion-nav-buttons>
   <ion-pane ng-controller="ClientesCtrl">
-    <ion-content>
+    <ion-content ng-init="getCarros()">
      <ion-list can-swipe="true">
-       <ion-item ng-repeat="items in carros" class="item-thumbnail-right" ng-click="getCarro(items.id)" href="#/app/clientview">
+       <ion-item ng-repeat="items in carros" class="item-thumbnail-right" ng-click="setId(items.id)" href="#/app/clientview">
          <img ng-src="{{items.img_url}}" >
          <h2>{{items.nombre}}</h2>
 
