@@ -57,10 +57,14 @@ angular.module('starter.services', [])
 
 .service('ClientesService', function($http, Backand){
   var baseUrl = '/1/objects/';
+  var baseUrlQuery = '/1/query/data/';
   var objectName = 'Carro/';
 
   function getUrl() {
     return Backand.getApiUrl() + baseUrl + objectName;
+  }
+  function getUrlQuery() {
+    return Backand.getApiUrl() + baseUrlQuery;
   }
 
   function getUrlForId(id) {
@@ -68,11 +72,54 @@ angular.module('starter.services', [])
   }
 
   getCarros = function () {
-    return $http.get(getUrl());
+    //return $http.get('https://api.backand.com/1/query/data/getSome?parameters=%7B%22status%22:%22p%22%7D')
+    return $http ({
+      method: 'GET',
+      url: Backand.getApiUrl() + '/1/query/data/getSome',
+      params: {
+        parameters: {
+          status: 'p'
+        }
+      }
+    });
+
   };
 
+  getPhone = function(id){
+    return $http ({
+      method: 'GET',
+      url: Backand.getApiUrl() + '/1/query/data/getPhone',
+      params: {
+        parameters: {
+          carId: id
+        }
+      }
+    });
+  };
+
+  //getCarros = function(){
+  //  console.log("entro");
+  //  var url = 'https://api.backand.com/1/query/data/getSome?'+
+  //      'parameters=%7B%22status%22:%22p%22%7D'
+  //  return $http.get(url)
+  //      .then(function(response){
+  //        console.log('success', response.data);
+  //      }, function(error){
+  //        console.log(error);
+  //      });
+  //};
+
   getCarro = function(id){
-    return $http.get(getUrlForId(id));
+    console.log('entro en geetCarro');
+    return $http ({
+      method: 'GET',
+      url: Backand.getApiUrl() + '/1/query/data/getProfile',
+      params: {
+        parameters: {
+          id: id
+        }
+      }
+    });
   };
 
 
@@ -83,6 +130,7 @@ angular.module('starter.services', [])
   return {
     getCarros: getCarros,
     getCarro: getCarro,
+    getPhone: getPhone,
     //addTodo: addTodo,
     deleteCarro: deleteCarro
   }

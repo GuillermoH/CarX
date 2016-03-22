@@ -153,6 +153,6 @@ angular.module('starter', ['ionic','backand', 'starter.controllers' , 'starter.s
 })
 
 .config(function (BackandProvider) {
-  BackandProvider.setAppName('carxprueba');
-  BackandProvider.setAnonymousToken('e5314cf0-e7c9-45a8-a004-e0a9f25c6f4e');
+  BackandProvider.setAppName('carx');
+  BackandProvider.setAnonymousToken('fb21662b-dabe-4605-b2a1-0a16dbe97294');
 });
