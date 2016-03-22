@@ -4,9 +4,9 @@
     <a id="editClient" class="button button-icon button-clear ion-android-create"  href=""></a>
   </ion-nav-buttons>
   <ion-pane ng-controller="ClientesCtrl">
-    <ion-content >
+    <ion-content ng-init="getProfile(getId()); getPhone(getId()); getEmails(getId())">
       <ion-list can-swipe="false">
-        <ion-item ng-repeat="items in carros" >
+        <ion-item ng-repeat="items in profileById" >
 
             <div class="list card">
 
@@ -22,14 +22,21 @@
                   <ion-item>Ano: {{items.ano | date: 'yyyy' }}</ion-item>
                   <ion-item>Dueno: {{items.nombre}}</ion-item>
                   <ion-item>Placa: {{items.placa}}</ion-item>
-                  <ion-item>telefono: 123456789</ion-item>
-                  <ion-item>email: pperez@gmail.com</ion-item>
-                  <ion-item>fecha de ingreso: 15/02/2016</ion-item>
-                  <ion-item>status: procesando</ion-item>
+                  <ion-list ng-repeat="p in phone" >
+                    <ion-item>telefono: {{ p.telefono }}</ion-item>
+                  </ion-list>
+                  <ion-list ng-repeat="x in emails">
+                    <ion-item>email: {{ x.ee }}</ion-item>
+                  </ion-list>
+                  <ion-item>fecha de ingreso: {{items.fecha_ingreso | date: 'dd/mm/yy' }}</ion-item>
+                  <ion-item ng-if="items.status == 'e'"> En espera </ion-item>
+                  <ion-item ng-if="items.status == 'l'"> Listo </ion-item>
+                  <ion-item ng-if="items.status == 'p'"> Procesando </ion-item>
+
                 </ion-list>
                 <p>
-                  <a href="#" class="subdued">1 Arreglo listo</a>
-                  <a href="#" class="subdued">5 Arreglos por terminar</a>
+                  <a href="#" class="subdued">{{items.listo}} Arreglo listo</a>
+                  <a href="#" class="subdued">{{items.nolisto}} Arreglos por terminar</a>
                 </p>
               </div>
 
