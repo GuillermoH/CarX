@@ -20,7 +20,7 @@ angular.module('starter.controllers', [])
 			return false;
 		}
 
-		if(user.username=='demo@carx.com' && user.password=='demo'){
+		if(user.username=='' && user.password==''){
 			$location.path('/app/dashboard');
 		}else{
 			$scope.showAlert('Usuario o clave inválida.');
@@ -52,35 +52,60 @@ angular.module('starter.controllers', [])
 	$scope.profiles = Profiles.all();
 })
 
-.controller('ClientesCtrl', function($scope, ClientesService){/* ESTO ES LO QUE AGREGUE EN LA CLASE! */
+.controller('ClientesCtrl', function($scope, $window, ClientesService, idService){
     $scope.carros = [];
-    $scope.carro = [];
+    $scope.profileById = [];
+    $scope.phone = [];
+    $scope.emails = [];
     $scope.input = {};
 
 
-    function getAllCarros(){
+    $scope.getCarros = function (){
         ClientesService.getCarros().then(function(result){
+            console.log(result.data);
             $scope.carros = result.data;
         });
-    }
+    };
+
+    $scope.setId = function(carId){
+        idService.updateId(carId);
+    };
+
+    $scope.getId = function(){
+        return idService.getId();
+    };
+
+    $scope.getPhone = function(id){
+        ClientesService.getPhone(id).then(function(result){
+            $scope.phone = result.data;
+        });
+    };
+    $scope.getEmails = function(id){
+        ClientesService.getEmails(id).then(function(result){
+            $scope.emails = result.data;
+        });
+    };
+
 
     $scope.getProfile = function (id) {
-
-        ClientesService.getCarro(id).then(function(result){
-            $scope.carro = result.data;
+        ClientesService.getProfile(id).then(function(result){
+            console.log('entro');
+            console.log(result.data);
+            $scope.profileById = result.data;
         });
     }
 
     $scope.deleteCarro = function (id) {
         ClientesService.deleteCarro(id).then(function(result){
-            getAllCarros();
+            getCarros();
         });
     }
-
-    getAllCarros();
+    //
+    //getCarros();
 })
 
 //---------- Agregado Berni 21/3------------------------ Pop Up CEDULA -----------------------------------
+
 .controller('PopupCtrl',function($scope, $ionicPopup, $timeout){
 
   $scope.showPopup = function() {
