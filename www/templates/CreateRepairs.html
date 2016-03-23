@@ -1,18 +1,20 @@
 <ion-view view-title="Repairs" hide-back-button="false">
 
-  <ion-pane>
+  <ion-pane ng-controller="ReparacionesCtrl">
 
     <ion-content>
 
-      <div class="item item-input-inset">
+      <div class="item item-input-inset" ng-submit="getReparacion(rep)">
         <label class="item-input-wrapper">
-        <input type="text" placeholder="  Ej: Base del motor">
+        <input type="text" ng-model="rep.Reparacion" placeholder="  Ej: Base del motor">
         </label>
-        <button class="icon button-icon ion-android-add-circle balanced "></button>
+        <button class="icon button-icon ion-android-add-circle balanced " ng-click="getReparacion()"></button>
 
 
       </div>
+      <div>
 
+      </div>
 
 
     </ion-content>

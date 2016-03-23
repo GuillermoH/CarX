@@ -158,4 +158,23 @@ angular.module('starter.services', [])
     getEmails: getEmails,
     deleteCarro: deleteCarro
   }
-});
+})
+
+.service('listaReparacionesService',function(){
+
+
+
+  return {
+
+    Reparacion: {},
+    getReparacion: function(){
+      return this.Reparacion;
+    },
+    updateReparacion: function(){
+      this.Reparacion = Reparacion;
+    }
+
+
+  }
+
+})

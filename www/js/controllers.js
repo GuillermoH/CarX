@@ -126,3 +126,23 @@ angular.module('starter.controllers', [])
 
 })
 
+  //------------------------------ Agregado LeBeeeeeeerns 22/3 --------------------------------------------------------
+  .controller('ReparacionesCtrl', function($scope){
+
+
+    $scope.Lista = [];
+
+    $scope.getReparacion= function(rep) {
+      console.log("Entro en get Rep");
+      if(rep.Reparacion){
+        console.log("Entro en el if");
+        listaReparacionesService.updateReparacion(rep);
+      }
+      else{
+        alert("Campo vacio");
+      }
+
+      };
+
+  })
+
