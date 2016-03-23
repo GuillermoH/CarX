@@ -4,16 +4,17 @@
 
     <ion-content>
 
-      <div class="item item-input-inset" ng-submit="getReparacion(rep)">
+      <form class="item item-input-inset" ng-submit="getReparacion(rep)">
         <label class="item-input-wrapper">
-        <input type="text" ng-model="rep.Reparacion" placeholder="  Ej: Base del motor">
+        <input type="text" ng-model="rep.reparacion" placeholder="  Ej: Base del motor">
         </label>
-        <button class="icon button-icon ion-android-add-circle balanced " ng-click="getReparacion()"></button>
+        <button class="icon button-icon ion-android-add-circle balanced " ng-click="setReparacion(rep.reparacion)"></button>
+        <!--Jurungar       el        codigo                 -->
 
 
-      </div>
+      </form>
       <div>
-
+        <ion-item>{{rep.reparacion}}</ion-item>
       </div>
 
 
