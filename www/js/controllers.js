@@ -137,12 +137,16 @@ angular.module('starter.controllers', [])
         return this.reps;
       };
 
-      $scope.setReparacion = function(rep){/*------------- Jurungar Codigo--------------------------------------*/
-        this.reps.push(rep);
-        console.log(this.reps);
-        this.rep.reparacion = null;
-      }
+    $scope.setReparacion = function(rep){/*------------- Jurungar Codigo--------------------------------------*/
+      this.reps.push(rep);
+      console.log(this.reps);
+      this.rep.reparacion = null;
+    }
 
+    $scope.deleteReparacion = function(rep){
+      this.rep.indexOf(rep);
+      console.log(this.rep.indexOf(rep));
+    }
 
   })
 

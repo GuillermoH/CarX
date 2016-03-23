@@ -16,7 +16,10 @@
       </div>
       <div>
         <ion-list>
-          <ion-item  ng-repeat="items in reps">{{items}}</ion-item>
+          <ion-item  ng-repeat="items in reps" class="item item-icon-right">
+                  {{items}}
+                <button class="icon button-icon ion-android-remove-circle assertive " ng-click="deleteReparacion(item)"></button>
+          </ion-item>
         </ion-list>
       </div>
 
