@@ -131,6 +131,7 @@ angular.module('starter.controllers', [])
 
 
     $scope.reps = [];
+    $scope.ReparacionByID = [];
 
     $scope.getReparacion= function() {
 
@@ -143,10 +144,12 @@ angular.module('starter.controllers', [])
       this.rep.reparacion = null;
     }
 
-    $scope.deleteReparacion = function(rep){
-      this.rep.indexOf(rep);
-      console.log(this.rep.indexOf(rep));
-    }
 
+
+    $scope.deleteReparacion = function (id) {
+      listaReparacionesService.deleteReparaciones(id).then(function(result){
+        getReparaciones();
+      });
+    }
   })
 

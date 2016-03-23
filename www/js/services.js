@@ -163,19 +163,31 @@ angular.module('starter.services', [])
 .service('listaReparacionesService',function(){
 
 /*------------------ Revisar servicio, actualiza automaticamente ---------------------*/
+  function getUrlForId(id) {
+    return getUrl() + id;
+  }
+
+
+  getReparaciones = function(id){
+
+    return $http({
+      method:'GET',
+      url:Backand.getApiUrl()+'/1/query/data/getReparaciones',
+      params:{
+        parameters:{
+          id:id
+        }
+      }
+    })
+  }
+
+  /*deleteReparaciones = function(id){
+    return $http.delete(getUrlForId(id))
+  }*/
 
   return {
-
-    Reparacion: {},
-    getReparacion: function(){
-      return this.Reparacion;
-    },
-    updateReparacion: function(Reparacion){
-      console.log("Rep-->" + Reparacion)
-      this.Reparacion = Reparacion;
-    }
-
-
+    getReparaciones : getReparaciones,
+    deleteReparaciones : deleteReparaciones
   }
 
 })
