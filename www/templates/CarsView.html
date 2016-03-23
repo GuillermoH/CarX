@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<ion-view view-title="Cars View" hide-back-button="true" >
+<ion-view view-title="Cars View" hide-back-button="false" can-swipe-back="true">
   <ion-nav-buttons side="right" > <!-- Agregado de Boton addClient LeBEEEEERNS -->
     <a id="addClient" class="button button-icon button-clear ion-plus"  href="#/app/addClientView"></a>
   </ion-nav-buttons>
-  <ion-pane ng-controller="ClientesCtrl">
-    <ion-content ng-init="getCarros()">
+  <ion-pane ng-controller="ClientesCtrl" ng-init="getStatus()">
+    <ion-content ng-init="getCarros(getStatus())">
      <ion-list can-swipe="true">
        <ion-item ng-repeat="items in carros" class="item-thumbnail-right" ng-click="setId(items.id)" href="#/app/clientview">
          <img ng-src="{{items.img_url}}" >
