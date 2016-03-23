@@ -216,7 +216,7 @@ angular.module('starter.services', [])
 
 .service('listaReparacionesService',function(){
 
-
+/*------------------ Revisar servicio, actualiza automaticamente ---------------------*/
 
   return {
 
@@ -224,7 +224,8 @@ angular.module('starter.services', [])
     getReparacion: function(){
       return this.Reparacion;
     },
-    updateReparacion: function(){
+    updateReparacion: function(Reparacion){
+      console.log("Rep-->" + Reparacion)
       this.Reparacion = Reparacion;
     }
 
