@@ -130,30 +130,24 @@ angular.module('starter.controllers', [])
   .controller('ReparacionesCtrl', function($scope, listaReparacionesService){
 
 
-    $scope.rep = [];
+    $scope.reps = [];
 
     $scope.getReparacion= function(rep) {
-      console.log("Entro en get Rep");
-      console.log(rep.reparacion)
-      if(rep.reparacion){
+      /*console.log("Entro en get Rep");
+      console.log("Obtiene la reparacion "+rep)
+      if(rep){
         console.log("Entro en el if");
-        listaReparacionesService.updateReparacion(rep);
+        listaReparacionesService.updateReparacion(this.rep);
       }
       else{
         alert("Campo vacio");
-      }
-
+      }*/
+        return this.reps;
       };
 
       $scope.setReparacion = function(rep){/*------------- Jurungar Codigo--------------------------------------*/
-        if(!this.rep[0]){
-          this.rep[0] = rep;
-          console.log("Posicion 0->"+this.rep[0]);
-        }
-        else{
-          this.rep[this.rep.length+1] = rep;
-          console.log("Posicion "+this.rep.length+1+"->"+this.rep[this.rep.length+1]);
-        }
+        this.reps.push(rep);
+        console.log(this.reps);
       }
 
   })

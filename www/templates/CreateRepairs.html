@@ -3,20 +3,22 @@
   <ion-pane ng-controller="ReparacionesCtrl">
 
     <ion-content>
-
-      <form class="item item-input-inset" ng-submit="getReparacion(rep)">
-        <label class="item-input-wrapper">
-        <input type="text" ng-model="rep.reparacion" placeholder="  Ej: Base del motor">
-        </label>
-        <button class="icon button-icon ion-android-add-circle balanced " ng-click="setReparacion(rep.reparacion)"></button>
-        <!--Jurungar       el        codigo                 -->
-
-
-      </form>
       <div>
-        <ion-item>{{rep.reparacion}}</ion-item>
-      </div>
+        <form class="item item-input-inset" ng-submit="getReparacion(rep.reparacion)">
+          <label class="item-input-wrapper">
+          <input type="text" ng-model="rep.reparacion" placeholder="  Ej: Base del motor">
+          </label>
+          <button class="icon button-icon ion-android-add-circle balanced " ng-click="setReparacion(rep.reparacion)"></button>
+          <!--Jurungar       el        codigo                 -->
 
+
+        </form>
+      </div>
+      <div>
+        <ion-list>
+          <ion-item  ng-repeat="items in reps">{{items}}</ion-item>
+        </ion-list>
+      </div>
 
     </ion-content>
 
