@@ -127,28 +127,22 @@ angular.module('starter.controllers', [])
 })
 
   //------------------------------ Agregado LeBeeeeeeerns 22/3 --------------------------------------------------------
-  .controller('ReparacionesCtrl', function($scope, listaReparacionesService){
+  .controller('ReparacionesCtrl', function($scope){
 
 
     $scope.reps = [];
 
-    $scope.getReparacion= function(rep) {
-      /*console.log("Entro en get Rep");
-      console.log("Obtiene la reparacion "+rep)
-      if(rep){
-        console.log("Entro en el if");
-        listaReparacionesService.updateReparacion(this.rep);
-      }
-      else{
-        alert("Campo vacio");
-      }*/
+    $scope.getReparacion= function() {
+
         return this.reps;
       };
 
       $scope.setReparacion = function(rep){/*------------- Jurungar Codigo--------------------------------------*/
         this.reps.push(rep);
         console.log(this.reps);
+        this.rep.reparacion = null;
       }
+
 
   })
 
