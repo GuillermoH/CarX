@@ -204,18 +204,25 @@ angular.module('starter.controllers', [])
 
 
     $scope.reps = [];
+    $scope.ReparacionByID = [];
 
     $scope.getReparacion= function() {
 
         return this.reps;
       };
 
-      $scope.setReparacion = function(rep){/*------------- Jurungar Codigo--------------------------------------*/
-        this.reps.push(rep);
-        console.log(this.reps);
-        this.rep.reparacion = null;
-      }
+    $scope.setReparacion = function(rep){/*------------- Jurungar Codigo--------------------------------------*/
+      this.reps.push(rep);
+      console.log(this.reps);
+      this.rep.reparacion = null;
+    }
 
 
+
+    $scope.deleteReparacion = function (id) {
+      listaReparacionesService.deleteReparaciones(id).then(function(result){
+        getReparaciones();
+      });
+    }
   })
 
