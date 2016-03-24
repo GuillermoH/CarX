@@ -66,6 +66,18 @@ angular.module('starter.services', [])
   }
 })
 
+.service('statusService', function() {
+  return {
+    status: {},
+    getStatus: function() {
+      return this.status;
+    },
+    updateStatus: function(status) {
+      this.status = status;
+    }
+  }
+})
+
 
 .service('ClientesService', function($http, Backand){
   var baseUrl = '/1/objects/';
@@ -83,18 +95,37 @@ angular.module('starter.services', [])
     return getUrl() + id;
   }
 
-  getCarros = function () {
+  getAllCarros = function () {
     //return $http.get('https://api.backand.com/1/query/data/getSome?parameters=%7B%22status%22:%22p%22%7D')
+    return $http ({
+      method: 'GET',
+      url: Backand.getApiUrl() + '/1/query/data/getAll',
+      params: {
+        parameters: {}
+      }
+    });
+  };
+
+  getSomeCarros = function(status){
     return $http ({
       method: 'GET',
       url: Backand.getApiUrl() + '/1/query/data/getSome',
       params: {
         parameters: {
-          status: 'p'
+          status: status
         }
       }
     });
+  };
 
+  getNum = function(){
+    return $http ({
+      method: 'GET',
+      url: Backand.getApiUrl() + '/1/query/data/getNum',
+      params: {
+        parameters: {}
+      }
+    });
   };
 
   getPhone = function(id){
@@ -152,12 +183,58 @@ angular.module('starter.services', [])
   };
 
   return {
-    getCarros: getCarros,
+    getAllCarros: getAllCarros,
+    getSomeCarros: getSomeCarros,
     getProfile: getProfile,
     getPhone: getPhone,
     getEmails: getEmails,
+    getNum: getNum,
     deleteCarro: deleteCarro
   }
+})
+
+.service('CreateService', function($http, Backand){
+
+  verifyCed = function(ced){
+    return $http ({
+      method: 'GET',
+      url: Backand.getApiUrl() + '/1/query/data/cedVerif',
+      params: {
+        parameters: {
+          ced: ced
+        }
+      }
+    });
+  };
+
+  insertClient = function(nombre, apellido, ced, email, telefono, modelo, placa, ano){
+
+    console.log('nombre dentro de service'+nombre);
+    return $http ({
+      method: 'GET',
+      url: Backand.getApiUrl() + '/1/query/data/insertCliente',
+      params: {
+        parameters: {
+          nombre: nombre,
+          apellido: apellido,
+          ced: ced,
+          email: email,
+          telefono: telefono,
+          modelo: modelo,
+          placa: placa,
+          url: 'http://i1275.photobucket.com/albums/y447/guillohell/1-02_zpsdita7o8o.png',
+          ano: ano+'-01-01 04:30:00'
+        }
+      }
+    });
+  };
+
+  return{
+    verifyCed: verifyCed,
+    insertClient: insertClient
+  }
+
+
 })
 
 .service('listaReparacionesService',function(){

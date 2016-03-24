@@ -3,35 +3,52 @@
   <ion-pane ng-controller="PopupCtrl">
 
     <ion-content ng-init="showPopup()">
+      <form ng-submit="insertClient(user)">
+        <div class="list list-inset" ng-if="userStatus == true">
+          <h3>Cliente: {{ user.nombre }} {{ user.apellido }}</h3>
+          <label class="item item-input">
+            <input type="text" ng-model="user.modelo" placeholder="Modelo">
+          </label>
+          <label class="item item-input">
+            <input type="text" ng-model="user.ano" placeholder="Año">
+          </label>
+          <label class="item item-input">
+            <input type="text" ng-model="user.placa" placeholder="Placa">
+          </label>
+          <input type="submit" class="button button-block button-positive" value="#/app/addRepair">
+        </div>
+        <div class="list list-inset" ng-if="userStatus == false">
+          <label class="item item-input">
+            <input type="text" ng-model="user.nombre" placeholder="Nombre">
+          </label>
+          <label class="item item-input">
+            <input type="text" ng-model="user.apellido" placeholder="Apellido">
+          </label>
+          <label class="item item-input">
+            <input type="text" ng-model="user.cedula" placeholder="Cedula">
+          </label>
+          <label class="item item-input">
+            <input type="text" ng-model="user.telefono" placeholder="Telefono">
+          </label>
+          <label class="item item-input">
+            <input type="text" ng-model="user.email" placeholder="e-mail">
+          </label>
+          <label class="item item-input">
+            <input type="text" ng-model="user.modelo" placeholder="Modelo">
+          </label>
+          <label class="item item-input">
+            <input type="text" ng-model="user.ano" placeholder="Año">
+          </label>
+          <label class="item item-input">
+            <input type="text" ng-model="user.placa" placeholder="Placa">
+          </label>
+          <a type="submit" class="button button-block button-positive" ng-click="insertClient(user)" href="#/app/addRepair"> Agregar reparaciones </a>
+          <!--<input type="submit" class="button button-block button-positive" value="Agregar reparaciones">-->
+        </div>
+      </form>
 
-      <div class="list list-inset">
-        <label class="item item-input">
-          <input type="text" placeholder="Nombre">
-        </label>
-        <label class="item item-input">
-          <input type="text" placeholder="Apellido">
-        </label>
-        <label class="item item-input">
-          <input type="text" placeholder="Cedula">
-        </label>
-        <label class="item item-input">
-          <input type="text" placeholder="Telefono">
-        </label>
-        <label class="item item-input">
-          <input type="text" placeholder="e-mail">
-        </label>
-        <label class="item item-input">
-          <input type="text" placeholder="Modelo">
-        </label>
-        <label class="item item-input">
-          <input type="text" placeholder="Año">
-        </label>
-        <label class="item item-input">
-          <input type="text" placeholder="Placa">
-        </label>
-      </div>
-      <a class="button button-block button-positive" href="#/app/addRepair">
-        <font size="5">Agregar Reparaciones</font>
+      <!--<a class="button button-block button-positive" href="#/app/addRepair">-->
+        <!--<font size="5">Agregar Reparaciones</font>-->
       </a>
     </ion-content>
 
