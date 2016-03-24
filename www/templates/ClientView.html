@@ -21,17 +21,21 @@
                   <ion-item>Modelo: {{items.Modelo}}</ion-item>
                   <ion-item>Ano: {{items.ano | date: 'yyyy' }}</ion-item>
                   <ion-item>Dueno: {{items.nombre}}</ion-item>
-                  <ion-item>Placa: {{items.placa}}</ion-item>
-                  <ion-list ng-repeat="p in phone" >
-                    <ion-item>telefono: {{ p.telefono }}</ion-item>
-                  </ion-list>
-                  <ion-list ng-repeat="x in emails">
-                    <ion-item>email: {{ x.ee }}</ion-item>
-                  </ion-list>
+                  <ion-item>Placa: {{items.placa}} </ion-item>
+                  <ion-item> Teléfono(s):
+                    <ion-list ng-repeat="p in phone" >
+                      <ion-item>{{ p.telefono }}</ion-item>
+                    </ion-list>
+                  </ion-item>
+                  <ion-item>E-mail(s):
+                    <ion-list ng-repeat="x in emails">
+                      <ion-item>{{ x.ee }}</ion-item>
+                    </ion-list>
+                  </ion-item>
                   <ion-item>fecha de ingreso: {{items.fecha_ingreso | date: 'dd/mm/yy' }}</ion-item>
-                  <ion-item ng-if="items.status == 'e'"> En espera </ion-item>
-                  <ion-item ng-if="items.status == 'l'"> Listo </ion-item>
-                  <ion-item ng-if="items.status == 'p'"> Procesando </ion-item>
+                  <ion-item ng-if="items.status == 'e'"> Estado: En espera </ion-item>
+                  <ion-item ng-if="items.status == 'l'"> Estado: Listo </ion-item>
+                  <ion-item ng-if="items.status == 'p'"> Estado: Procesando </ion-item>
 
                 </ion-list>
                 <p>
