@@ -145,7 +145,7 @@ angular.module('starter.controllers', [])
 
 //---------- Agregado Berni 21/3------------------------ Pop Up CEDULA -----------------------------------
 
-.controller('PopupCtrl',function($scope, $ionicPopup, $timeout, CreateService){
+.controller('PopupCtrl',function($scope, $ionicPopup, $timeout, CreateService, idService){
     $scope.data = {};
     $scope.user = {};
     $scope.userStatus;
@@ -187,8 +187,25 @@ angular.module('starter.controllers', [])
     $scope.insertClient = function(user){
         console.log(user.nombre+"este el el nombre");
         CreateService.insertClient(user.nombre, user.apellido, user.cedula, user.email, user.telefono, user.modelo, user.placa, user.ano).then(function(result){
+            console.log("id devuelto por insertcliente "+result.data[0].id)
             $scope.user.id = result.data[0].id;
+            $scope.setId(result.data[0].id);
         });
+    };
+
+    $scope.insertCarro = function(user){
+        console.log (user);
+
+        CreateService.insertCarro(user.modelo, user.placa, user.ano, user.id).then(function(result){
+
+        });
+    };
+    $scope.setId = function(carId){
+        idService.updateId(carId);
+    };
+
+    $scope.getId = function(){
+        return idService.getId();
     };
 
     //$scope.getProfileCed = function (ced) {
@@ -200,22 +217,41 @@ angular.module('starter.controllers', [])
 })
 
   //------------------------------ Agregado LeBeeeeeeerns 22/3 --------------------------------------------------------
-  .controller('ReparacionesCtrl', function($scope){
+  .controller('ReparacionesCtrl', function($scope, CreateService, DeleteService, idService){
+
+      $scope.Reparaciones = [];
+
+    /*--------------------------- Agregado por LeBerns 24/3 ---------------------------------------------*/
+    $scope.insertRepair = function(rep, id){
+      console.log("La reparacion a insertar es -> "+ rep+" en "+id);
+      CreateService.insertRepair(rep, id ).then(function(){
+
+      });
+
+    };
 
 
-    $scope.reps = [];
+    $scope.deleteReparacion = function (rep) {
+      DeleteService.removeRepair(rep,3).then(function(result){
 
-    $scope.getReparacion= function() {
+      })
+    };
 
-        return this.reps;
-      };
+    $scope.getReparaciones = function (id){
+        CreateService.getReparaciones(id).then(function (result) {
+            console.log(result.data);
+            $scope.Reparaciones = result.data;
+        });
+    };
 
-      $scope.setReparacion = function(rep){/*------------- Jurungar Codigo--------------------------------------*/
-        this.reps.push(rep);
-        console.log(this.reps);
-        this.rep.reparacion = null;
-      }
+    $scope.setId = function(carId){
+      idService.updateId(carId);
+    };
 
+    $scope.getId = function(){
+      return idService.getId();
+    };
 
   })
+
 
