@@ -229,9 +229,28 @@ angular.module('starter.services', [])
     });
   };
 
+
+  /*------------------- Agregado por LeBerns 24/3 -----------------------------------------------------------*/
+  insertRepair = function(descripcion, carro){
+    console.log("ID del carro-> "+carro );
+    return $http ({
+      method: 'GET',
+      url: Backand.getApiUrl() + '/1/query/data/addRepair',
+      params: {
+        parameters: {
+          descripcion: descripcion,
+          status: 'false',
+          carro: carro
+        }
+      }
+    });
+
+  };
+
   return{
     verifyCed: verifyCed,
-    insertClient: insertClient
+    insertClient: insertClient,
+    insertRepair : insertRepair
   }
 
 

@@ -200,7 +200,7 @@ angular.module('starter.controllers', [])
 })
 
   //------------------------------ Agregado LeBeeeeeeerns 22/3 --------------------------------------------------------
-  .controller('ReparacionesCtrl', function($scope){
+  .controller('ReparacionesCtrl', function($scope, CreateService){
 
 
     $scope.reps = [];
@@ -212,11 +212,17 @@ angular.module('starter.controllers', [])
       };
 
     $scope.setReparacion = function(rep){/*------------- Jurungar Codigo--------------------------------------*/
-      this.reps.push(rep);
+      /*this.reps.push(rep);
       console.log(this.reps);
-      this.rep.reparacion = null;
-    }
+      this.rep.reparacion = null;*/
 
+
+    };
+
+    $scope.insertRepair = function(rep){
+      console.log("La reparacion a insertar es -> "+ rep);
+      CreateService.insertRepair(rep, 3); /*--- Parametro id_carro Hardcoded ----*/
+    };
 
 
     $scope.deleteReparacion = function (id) {
