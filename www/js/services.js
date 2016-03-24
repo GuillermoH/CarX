@@ -229,9 +229,26 @@ angular.module('starter.services', [])
     });
   };
 
+  insertCarro = function(modelo, placa, ano, id){
+    return $http ({
+      method: 'GET',
+      url: Backand.getApiUrl() + '/1/query/data/insertCarro',
+      params: {
+        parameters: {
+          modelo: modelo,
+          placa: placa,
+          ano: ano+'-01-01 04:30:00',
+          url: 'http://i1275.photobucket.com/albums/y447/guillohell/1-02_zpsdita7o8o.png',
+          id: id
+        }
+      }
+    });
+  };
+
   return{
     verifyCed: verifyCed,
-    insertClient: insertClient
+    insertClient: insertClient,
+    insertCarro: insertCarro
   }
 
 

@@ -191,6 +191,14 @@ angular.module('starter.controllers', [])
         });
     };
 
+    $scope.insertCarro = function(user){
+        console.log (user);
+
+        CreateService.insertCarro(user.modelo, user.placa, user.ano, user.id).then(function(result){
+
+        });
+    };
+
     //$scope.getProfileCed = function (ced) {
     //    ClientesService.getProfile(ced).then(function(result){
     //        $scope.profileById = result.data;
