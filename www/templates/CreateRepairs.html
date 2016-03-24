@@ -2,23 +2,24 @@
 
   <ion-pane ng-controller="ReparacionesCtrl">
 
-    <ion-content class="has-footer">
+    <ion-content class="has-footer" ng-init="getReparaciones(getId())">
       <div>
-        <form class="item item-input-inset" ng-submit="getReparacion(rep.reparacion)">
+        <h1>ID: {{ getId() }}</h1>
+        <form class="item item-input-inset" >
           <label class="item-input-wrapper">
           <input type="text" ng-model="rep.reparacion" placeholder="  Ej: Base del motor" >
           </label>
-          <button class="icon button-icon ion-android-add-circle balanced " ng-click="setReparacion(rep.reparacion) "></button>
+          <button class="icon button-icon ion-android-add-circle balanced " ng-click="insertRepair(rep.reparacion, getId())"></button>
           <!--Jurungar       el        codigo                 -->
-
+          <!--)-->
 
         </form>
       </div>
       <div>
         <ion-list>
-          <ion-item  ng-repeat="items in reps" class="item item-icon-right">
+          <ion-item  ng-repeat="items in Reparaciones" class="item item-icon-right">
                   {{items}}
-                <button class="icon button-icon ion-android-remove-circle assertive " ng-click="deleteReparacion(item) "></button>
+                <button class="icon button-icon ion-android-remove-circle assertive " ng-click="deleteReparacion('caucho der') "></button>
           </ion-item>
         </ion-list>
       </div>

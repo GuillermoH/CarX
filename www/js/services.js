@@ -229,59 +229,54 @@ angular.module('starter.services', [])
     });
   };
 
-  insertCarro = function(modelo, placa, ano, id){
+
+  /*------------------- Agregado por LeBerns 24/3 -----------------------------------------------------------*/
+  insertRepair = function(descripcion, carro){
+    console.log("ID del carro-> "+carro );
     return $http ({
       method: 'GET',
-      url: Backand.getApiUrl() + '/1/query/data/insertCarro',
+      url: Backand.getApiUrl() + '/1/query/data/addRepair',
       params: {
         parameters: {
-          modelo: modelo,
-          placa: placa,
-          ano: ano+'-01-01 04:30:00',
-          url: 'http://i1275.photobucket.com/albums/y447/guillohell/1-02_zpsdita7o8o.png',
-          id: id
+          descripcion: descripcion,
+          status: 'false',
+          carro: carro
         }
       }
     });
+
   };
 
   return{
     verifyCed: verifyCed,
     insertClient: insertClient,
-    insertCarro: insertCarro
+    insertRepair : insertRepair
   }
 
 
 })
 
-.service('listaReparacionesService',function(){
+.service('DeleteService',function($http, Backand){
 
-/*------------------ Revisar servicio, actualiza automaticamente ---------------------*/
-  function getUrlForId(id) {
-    return getUrl() + id;
-  }
+/*------------------ Agregado por LeBerns 24/3 ---------------------*/
 
-
-  getReparaciones = function(id){
-
-    return $http({
-      method:'GET',
-      url:Backand.getApiUrl()+'/1/query/data/getReparaciones',
-      params:{
-        parameters:{
-          id:id
+  removeRepair = function(descripcion,carro){
+    console.log("ID del carro --> "+carro);
+    return $http ({
+      method: 'GET',
+      url: Backand.getApiUrl() + '/1/query/data/removeRepair',
+      params: {
+        parameters: {
+          descripcion: descripcion,
+          carro: carro
         }
       }
-    })
-  }
+    });
 
-  /*deleteReparaciones = function(id){
-    return $http.delete(getUrlForId(id))
-  }*/
+  };
 
   return {
-    getReparaciones : getReparaciones,
-    deleteReparaciones : deleteReparaciones
+    removeRepair : removeRepair
   }
 
-})
+});

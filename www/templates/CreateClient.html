@@ -15,7 +15,7 @@
           <label class="item item-input">
             <input type="text" ng-model="user.placa" placeholder="Placa">
           </label>
-          <a type="submit" class="button button-block button-positive" ng-click="insertCarro(user)" href="#/app/addRepair"> Agregar reparaciones </a>
+          <a type="submit" class="button button-block button-positive" ng-click="insertCarro(user); setId(user.id);" href="#/app/addRepair"> Agregar reparaciones </a>
         </div>
         <div class="list list-inset" ng-if="userStatus == false">
           <label class="item item-input">
@@ -42,7 +42,7 @@
           <label class="item item-input">
             <input type="text" ng-model="user.placa" placeholder="Placa">
           </label>
-          <a type="submit" class="button button-block button-positive" ng-click="insertClient(user)" href="#/app/addRepair"> Agregar reparaciones </a>
+          <a type="submit" class="button button-block button-positive" ng-click="insertClient(user); setId(user.id)" href="#/app/addRepair"> Agregar reparaciones </a>
           <!--<input type="submit" class="button button-block button-positive" value="Agregar reparaciones">-->
         </div>
       </form>
