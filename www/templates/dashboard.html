@@ -5,7 +5,7 @@
 
 	  <ion-list ng-repeat="items in numeros">
 
-		  <ion-item class="item item-button-right " ng-click="setStatus(4)" href="#/app/carsview">
+		  <ion-item class="item item-button-right " ng-click="setStatus(3)" href="#/app/carsview">
 			  <h1 style="padding-top: 20px;">En Espera</h1>
 			  <button class="button button-dash button-assertive" style="font-size:40px; justify-content: center; font-weight: bold;">
 				{{ items.espera }}
@@ -19,7 +19,7 @@
 			  </button>
 		  </ion-item>
       <br><br>
-		  <ion-item class="item item-button-right" ng-click="setStatus(3)" href="#/app/carsview">
+		  <ion-item class="item item-button-right" ng-click="setStatus(4)" href="#/app/carsview">
 			  <h1 style="padding-top: 20px;">Listos</h1>
 			  <button class="button button-dash button-balanced" style="font-size:40px; justify-content: center; font-weight: bold;">
 				  {{ items.listo }}
