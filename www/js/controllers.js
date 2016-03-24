@@ -136,7 +136,7 @@ angular.module('starter.controllers', [])
 
     $scope.deleteCarro = function (id) {
         ClientesService.deleteCarro(id).then(function(result){
-            getCarros();
+            $scope.getCarros(1);
         });
     }
     //
