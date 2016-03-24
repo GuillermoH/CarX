@@ -207,8 +207,31 @@ angular.module('starter.services', [])
     });
   };
 
+  insertClient = function(nombre, apellido, ced, email, telefono, modelo, placa, ano){
+
+    console.log('nombre dentro de service'+nombre);
+    return $http ({
+      method: 'GET',
+      url: Backand.getApiUrl() + '/1/query/data/insertCliente',
+      params: {
+        parameters: {
+          nombre: nombre,
+          apellido: apellido,
+          ced: ced,
+          email: email,
+          telefono: telefono,
+          modelo: modelo,
+          placa: placa,
+          url: 'http://i1275.photobucket.com/albums/y447/guillohell/1-02_zpsdita7o8o.png',
+          ano: ano+'-01-01 04:30:00'
+        }
+      }
+    });
+  };
+
   return{
-    verifyCed: verifyCed
+    verifyCed: verifyCed,
+    insertClient: insertClient
   }
 
 

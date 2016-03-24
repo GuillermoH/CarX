@@ -182,7 +182,14 @@ angular.module('starter.controllers', [])
                 $scope.user.id = null;
             }
         });
-    }
+    };
+
+    $scope.insertClient = function(user){
+        console.log(user.nombre+"este el el nombre");
+        CreateService.insertClient(user.nombre, user.apellido, user.cedula, user.email, user.telefono, user.modelo, user.placa, user.ano).then(function(result){
+            $scope.user.id = result.data[0].id;
+        });
+    };
 
     //$scope.getProfileCed = function (ced) {
     //    ClientesService.getProfile(ced).then(function(result){

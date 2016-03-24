@@ -3,7 +3,7 @@
   <ion-pane ng-controller="PopupCtrl">
 
     <ion-content ng-init="showPopup()">
-      <form ng-submit="submitForm(user)">
+      <form ng-submit="insertClient(user)">
         <div class="list list-inset" ng-if="userStatus == true">
           <h3>Cliente: {{ user.nombre }} {{ user.apellido }}</h3>
           <label class="item item-input">
@@ -15,7 +15,7 @@
           <label class="item item-input">
             <input type="text" ng-model="user.placa" placeholder="Placa">
           </label>
-          <input type="submit" class="button button-block button-positive" value="Agregar reparaciones">
+          <input type="submit" class="button button-block button-positive" value="#/app/addRepair">
         </div>
         <div class="list list-inset" ng-if="userStatus == false">
           <label class="item item-input">
@@ -42,7 +42,8 @@
           <label class="item item-input">
             <input type="text" ng-model="user.placa" placeholder="Placa">
           </label>
-          <input type="submit" class="button button-block button-positive" value="Agregar reparaciones">
+          <a type="submit" class="button button-block button-positive" ng-click="insertClient(user)" href="#/app/addRepair"> Agregar reparaciones </a>
+          <!--<input type="submit" class="button button-block button-positive" value="Agregar reparaciones">-->
         </div>
       </form>
 
