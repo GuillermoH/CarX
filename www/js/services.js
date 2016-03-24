@@ -222,8 +222,8 @@ angular.module('starter.services', [])
           telefono: telefono,
           modelo: modelo,
           placa: placa,
-          url: 'http://i1275.photobucket.com/albums/y447/guillohell/1-02_zpsdita7o8o.png',
-          ano: ano+'-01-01 04:30:00'
+          ano: ano+'-01-01 04:30:00',
+          url: 'http://i1275.photobucket.com/albums/y447/guillohell/1-02_zpsdita7o8o.png'
         }
       }
     });
@@ -289,15 +289,14 @@ angular.module('starter.services', [])
 
 /*------------------ Agregado por LeBerns 24/3 ---------------------*/
 
-  removeRepair = function(descripcion,carro){
+  removeRepair = function(carro){
     console.log("ID del carro --> "+carro);
     return $http ({
       method: 'GET',
       url: Backand.getApiUrl() + '/1/query/data/removeRepair',
       params: {
         parameters: {
-          descripcion: descripcion,
-          carro: carro
+          id: carro
         }
       }
     });
