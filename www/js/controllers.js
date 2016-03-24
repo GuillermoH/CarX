@@ -211,7 +211,7 @@ angular.module('starter.controllers', [])
 
 
     $scope.deleteReparacion = function (rep) {
-      DeleteService.removeRepair(rep,1).then(function(result){
+      DeleteService.removeRepair(rep,3).then(function(result){
 
       })
       };
