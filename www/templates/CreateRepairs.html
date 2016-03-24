@@ -9,7 +9,7 @@
           <label class="item-input-wrapper">
           <input type="text" ng-model="rep.reparacion" placeholder="  Ej: Base del motor" >
           </label>
-          <button class="icon button-icon ion-android-add-circle balanced " ng-click="insertRepair(rep.reparacion, getId())"></button>
+          <button class="icon button-icon ion-android-add-circle balanced " ng-click="insertRepair(rep, getId())"></button>
           <!--Jurungar       el        codigo                 -->
           <!--)-->
 
@@ -18,8 +18,8 @@
       <div>
         <ion-list>
           <ion-item  ng-repeat="items in Reparaciones" class="item item-icon-right">
-                  {{items}}
-                <button class="icon button-icon ion-android-remove-circle assertive " ng-click="deleteReparacion('caucho der') "></button>
+                  {{items.descripcion}}
+                <button class="icon button-icon ion-android-remove-circle assertive " ng-click="deleteReparacion(items.id) "></button>
           </ion-item>
         </ion-list>
       </div>
@@ -28,7 +28,7 @@
     <div class="bar bar-footer bar-clear">
       <div class="row">
         <div class="col"></div>
-        <div class="col col-50 col-center button  button-positive">Terminar</div>
+        <a class="col col-50 col-center button  button-positive" ng-click="setStatus(1)" href="#/app/carsview">Terminar</a>
         <div class="col"></div>
       </div>
 

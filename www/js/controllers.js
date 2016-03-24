@@ -197,7 +197,8 @@ angular.module('starter.controllers', [])
         console.log (user);
 
         CreateService.insertCarro(user.modelo, user.placa, user.ano, user.id).then(function(result){
-
+            $scope.user.id = result.data[0].id;
+            $scope.setId(result.data[0].id);
         });
     };
     $scope.setId = function(carId){
@@ -217,23 +218,25 @@ angular.module('starter.controllers', [])
 })
 
   //------------------------------ Agregado LeBeeeeeeerns 22/3 --------------------------------------------------------
-  .controller('ReparacionesCtrl', function($scope, CreateService, DeleteService, idService){
+  .controller('ReparacionesCtrl', function($scope, CreateService, DeleteService, idService, statusService){
 
       $scope.Reparaciones = [];
+      $scope.rep = {};
 
     /*--------------------------- Agregado por LeBerns 24/3 ---------------------------------------------*/
     $scope.insertRepair = function(rep, id){
-      console.log("La reparacion a insertar es -> "+ rep+" en "+id);
-      CreateService.insertRepair(rep, id ).then(function(){
-
+      console.log("La reparacion a insertar es -> "+ rep+(typeof rep)+" en "+id+ (typeof id));
+      CreateService.insertRepair(rep.reparacion, id ).then(function(){
+        $scope.getReparaciones(id);
+          $scope.rep.reparacion = "";
       });
 
     };
 
 
-    $scope.deleteReparacion = function (rep) {
-      DeleteService.removeRepair(rep,3).then(function(result){
-
+    $scope.deleteReparacion = function (id) {
+      DeleteService.removeRepair(id).then(function(result){
+          $scope.getReparaciones($scope.getId());
       })
     };
 
@@ -250,6 +253,11 @@ angular.module('starter.controllers', [])
 
     $scope.getId = function(){
       return idService.getId();
+    };
+
+    $scope.setStatus = function(status){
+      statusService.updateStatus(status);
+
     };
 
   })
