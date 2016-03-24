@@ -8,9 +8,9 @@
           <label class="item-input-wrapper">
           <input type="text" ng-model="rep.reparacion" placeholder="  Ej: Base del motor" >
           </label>
-          <button class="icon button-icon ion-android-add-circle balanced " ng-click="insertRepair(rep.reparacion) "></button>
+          <button class="icon button-icon ion-android-add-circle balanced " ng-click="insertRepair(rep.reparacion)"></button>
           <!--Jurungar       el        codigo                 -->
-
+          <!--)-->
 
         </form>
       </div>
@@ -18,7 +18,7 @@
         <ion-list>
           <ion-item  ng-repeat="items in reps" class="item item-icon-right">
                   {{items}}
-                <button class="icon button-icon ion-android-remove-circle assertive " ng-click="deleteReparacion(item) "></button>
+                <button class="icon button-icon ion-android-remove-circle assertive " ng-click="deleteReparacion('caucho der') "></button>
           </ion-item>
         </ion-list>
       </div>

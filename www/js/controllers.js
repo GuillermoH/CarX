@@ -200,35 +200,21 @@ angular.module('starter.controllers', [])
 })
 
   //------------------------------ Agregado LeBeeeeeeerns 22/3 --------------------------------------------------------
-  .controller('ReparacionesCtrl', function($scope, CreateService){
+  .controller('ReparacionesCtrl', function($scope, CreateService, DeleteService){
 
 
-    $scope.reps = [];
-    $scope.ReparacionByID = [];
-
-    $scope.getReparacion= function() {
-
-        return this.reps;
-      };
-
-    $scope.setReparacion = function(rep){/*------------- Jurungar Codigo--------------------------------------*/
-      /*this.reps.push(rep);
-      console.log(this.reps);
-      this.rep.reparacion = null;*/
-
-
-    };
-
+    /*--------------------------- Agregado por LeBerns 24/3 ---------------------------------------------*/
     $scope.insertRepair = function(rep){
       console.log("La reparacion a insertar es -> "+ rep);
       CreateService.insertRepair(rep, 3); /*--- Parametro id_carro Hardcoded ----*/
     };
 
 
-    $scope.deleteReparacion = function (id) {
-      listaReparacionesService.deleteReparaciones(id).then(function(result){
-        getReparaciones();
-      });
-    }
-  })
+    $scope.deleteReparacion = function (rep) {
+      DeleteService.removeRepair(rep,1).then(function(result){
+
+      })
+      };
+    });
+
 
