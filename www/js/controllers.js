@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $ionicPopover, $timeout,  $location, $ionicPopup) {
+.controller('AppCtrl', function($scope, $ionicModal, $ionicPopover, $timeout,  $location, $ionicPopup, loginService, idService) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -27,8 +27,30 @@ angular.module('starter.controllers', [])
 		}
 
 	};
+
+    $scope.loginClient = function(user){
+        loginService.validateLogin(user.placa).then(function(result){
+            if(result.data.length > 0){
+                $scope.setId(result.data[0].id);
+                $location.path('/app/ClientProfile');
+            }else {
+                $scope.showAlert('Placa no existente en nuestra base de datos');
+            }
+        })
+    };
+
+    $scope.setId = function(carId){
+        idService.updateId(carId);
+    };
+
+    $scope.getId = function(){
+        return idService.getId();
+    };
   //--------------------------------------------
-  $scope.logout = function() {   $location.path('/app/login');   };
+  $scope.logout = function() {
+      $location.path('/app/login');
+      $scope.setId(null);
+  };
   //--------------------------------------------
    // An alert dialog
 	 $scope.showAlert = function(msg) {

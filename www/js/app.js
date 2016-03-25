@@ -41,6 +41,14 @@ angular.module('starter', ['ionic','backand', 'starter.controllers' , 'starter.s
 		}
 	});
 
+  $ionicPlatform.registerBackButtonAction(function (event) {
+    if ($ionicHistory.currentStateName() === 'someStateName'){
+      event.preventDefault();
+    } else {
+      $ionicHistory.goBack();
+    }
+  }, 100);
+
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -87,6 +95,24 @@ angular.module('starter', ['ionic','backand', 'starter.controllers' , 'starter.s
 	 authStatus: true
   })
 
+  .state('app.ClientProfile', {
+    url: '/ClientProfile',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/ClientProfile.html'
+      }
+    },
+    authStatus: true
+  })
+    .state('app.ViewRepairs', {
+      url: '/ViewRepairs',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/ViewRepairs.html'
+        }
+      },
+      authStatus: true
+    })
 
     .state('app.profiles', {
       url: '/profiles',
