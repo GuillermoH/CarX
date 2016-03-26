@@ -285,6 +285,27 @@ angular.module('starter.services', [])
 
 })
 
+.service('loginService',function($http, Backand){
+
+  validateLogin = function (placa) {
+    return $http ({
+      method: 'GET',
+      url: Backand.getApiUrl() + '/1/query/data/getClientId',
+      params: {
+        parameters: {
+          placa: placa
+        }
+      }
+    });
+  };
+
+
+  return {
+    validateLogin: validateLogin
+  }
+})
+
+
 .service('DeleteService',function($http, Backand){
 
 /*------------------ Agregado por LeBerns 24/3 ---------------------*/
