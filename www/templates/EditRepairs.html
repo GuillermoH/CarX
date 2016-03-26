@@ -2,7 +2,7 @@
 
   <ion-pane ng-controller="ReparacionesCtrl">
 
-    <ion-content class="has-footer">
+    <ion-content class="has-footer" ng-init="getReparaciones(getId())">
       <div>
         <form class="item item-input-inset" >
           <label class="item-input-wrapper">
@@ -14,11 +14,14 @@
 
         </form>
       </div>
-      <div>
-        <ion-list>
+      <div ng-init="getReparaciones(getId())">
+        <ion-list can-swipe="true">
           <ion-item  ng-repeat="items in Reparaciones" class="item item-icon-right">
-                  {{items.descripcion}}
-                <button class="icon button-icon ion-android-remove-circle assertive " ng-click="deleteReparacion(items.id) "></button>
+                  {{items.descripcion}} <p>{{ items.costo }}</p>
+            <button ng-if="items.status == false" ng-click="updateStatusR(items.id, true)" class="icon button-icon ion-android-checkbox-outline-blank assertive "></button>
+            <button ng-if="items.status == true" ng-click="updateStatusR(items.id, false)" class="icon button-icon ion-android-checkbox-outline balanced "></button>
+
+            <ion-option-button class="button-assertive" ng-click="deleteReparacion(items.id)" >Borrar</ion-option-button>
           </ion-item>
         </ion-list>
       </div>
@@ -27,7 +30,7 @@
     <div class="bar bar-footer bar-clear">
       <div class="row">
         <div class="col"></div>
-        <a class="col col-50 col-center button  button-outline button-stable" ng-click="setStatus(1)" href="#/app/dashboard">Terminar</a>
+        <a class="col col-50 col-center button  button-outline button-stable" href="#/app/dashboard">Terminar</a>
         <div class="col"></div>
       </div>
 
