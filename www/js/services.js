@@ -182,6 +182,59 @@ angular.module('starter.services', [])
     return $http.delete(getUrlForId(id));
   };
 
+  addEmail = function(id, email){
+    return $http ({
+      method: 'GET',
+      url: Backand.getApiUrl() + '/1/query/data/addEmail',
+      params: {
+        parameters: {
+          id: id,
+          email: email
+        }
+      }
+    });
+  };
+
+  addPhone = function (id, telf) {
+    return $http ({
+      method: 'GET',
+      url: Backand.getApiUrl() + '/1/query/data/addPhone',
+      params: {
+        parameters: {
+          id: id,
+          telefono: parseInt(telf)
+        }
+      }
+    });
+  };
+  
+  updateProfile = function (id, modelo, placa) {
+    return $http ({
+      method: 'GET',
+      url: Backand.getApiUrl() + '/1/query/data/updateProfile',
+      params: {
+        parameters: {
+          id: id,
+          modelo: modelo,
+          placa: placa
+        }
+      }
+    });
+  };
+
+  updateStatus = function (id, status) {
+    return $http ({
+      method: 'GET',
+      url: Backand.getApiUrl() + '/1/query/data/updateStatus',
+      params: {
+        parameters: {
+          id: id,
+          status: status
+        }
+      }
+    });
+  };
+
   return {
     getAllCarros: getAllCarros,
     getSomeCarros: getSomeCarros,
@@ -189,7 +242,11 @@ angular.module('starter.services', [])
     getPhone: getPhone,
     getEmails: getEmails,
     getNum: getNum,
-    deleteCarro: deleteCarro
+    deleteCarro: deleteCarro,
+    addEmail: addEmail,
+    addPhone: addPhone,
+    updateProfile: updateProfile,
+    updateStatus: updateStatus
   }
 })
 
@@ -274,12 +331,27 @@ angular.module('starter.services', [])
     });
   };
 
+  updateStatusR =function(id, status){
+    return $http ({
+      method: 'GET',
+      url: Backand.getApiUrl() + '/1/query/data/updateRepStatus',
+      params: {
+        parameters: {
+          id: id,
+          status: status
+        }
+      }
+    });
+  };
+
   return{
     verifyCed: verifyCed,
     insertClient: insertClient,
     insertCarro: insertCarro,
     insertRepair : insertRepair,
-    getReparaciones: getReparaciones
+    getReparaciones: getReparaciones,
+    updateStatusR: updateStatusR
+
   }
 
 

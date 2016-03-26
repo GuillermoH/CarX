@@ -5,7 +5,6 @@
   </ion-nav-buttons>
   <ion-pane ng-controller="ClientesCtrl">
     <ion-content class="has-footer" ng-init="getProfile(getId()); getPhone(getId()); getEmails(getId())">
-      <h1>{{ getId() }}</h1>
       <ion-list can-swipe="false">
         <ion-item ng-repeat="items in profileById" >
 
@@ -20,8 +19,8 @@
 
                 <ion-list>
                   <ion-item>Modelo: {{items.Modelo}}</ion-item>
-                  <ion-item>Ano: {{items.ano | date: 'yyyy' }}</ion-item>
-                  <ion-item>Dueno: {{items.nombre}}</ion-item>
+                  <ion-item>Año: {{items.ano | date: 'yyyy' }}</ion-item>
+                  <ion-item>Dueño: {{items.nombre}}</ion-item>
                   <ion-item>Placa: {{items.placa}} </ion-item>
                   <ion-item> Teléfono(s):
                     <ion-list ng-repeat="p in phone" >
