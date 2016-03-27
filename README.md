@@ -2,5 +2,5 @@
 
 Proyecto de Base de Datos, Universidad Metropolitana.
 
-Bernardo Bello
+Bernardo Bello <br>
 Guillermo Hellmund
