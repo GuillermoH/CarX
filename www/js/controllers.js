@@ -178,6 +178,7 @@ angular.module('starter.controllers', [])
         console.log("email a ingresar: "+email+" id: "+id);
         ClientesService.addEmail(id, email).then(function (result) {
             $scope.getEmails(id);
+
         })
     };
     $scope.addPhone = function (id, telf) {
@@ -189,6 +190,7 @@ angular.module('starter.controllers', [])
     $scope.updateProfile = function (id, modelo, placa) {
         ClientesService.updateProfile(id, modelo, placa).then(function (result) {
             $scope.getProfile(id);
+
         });
     };
     $scope.updateStatus = function (id, status) {
