@@ -1,5 +1,6 @@
 # CarX
 
-let's do thiiiis 
+Proyecto de Base de Datos, Universidad Metropolitana.
 
-![Diagrama en back&](https://github.com/GuillermoH/CarX/blob/master/diagrama%20back%26.png)
+Bernardo Bello
+Guillermo Hellmund
