@@ -69,7 +69,7 @@
                     <label class="item item-input">
                       <input type="text" ng-model="items.placa" placeholder="Placa">
                     </label>
-                    <a type="submit" class="button button-block button-positive" ng-click="updateProfile(getId(), items.Modelo, items.placa)"> Actualizar perfil </a>
+                    <a type="submit" class="button button-block button-positive" ng-click="updateProfile(getId(), items.Modelo, items.placa); setStatus(false);"> Actualizar perfil </a>
                     <!--<input type="submit" class="button button-block button-positive" value="Agregar reparaciones">-->
                   </div>
                 </form>
@@ -77,13 +77,13 @@
                   <label class="item-input-wrapper">
                     <input type="text" ng-model="email" placeholder="  Agregar E-mail" >
                   </label>
-                  <button class="icon button-icon ion-android-add-circle balanced " ng-click="addEmail(getId(), email)"></button>
+                  <button class="icon button-icon ion-android-add-circle balanced " ng-click="addEmail(getId(), email); email = '' "></button>
                 </form>
                 <form class="item item-input-inset" ng-if="getStatus() == true">
                   <label class="item-input-wrapper">
                     <input type="text" ng-model="telf" placeholder="  Agregar Telefono" >
                   </label>
-                  <button class="icon button-icon ion-android-add-circle balanced " ng-click="addPhone(getId(), telf)"></button>
+                  <button class="icon button-icon ion-android-add-circle balanced " ng-click="addPhone(getId(), telf); telf='' "></button>
                 </form>
                 <p>
                   <a href="#" class="subdued">{{items.listo}} Arreglo listo</a>
