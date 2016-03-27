@@ -85,6 +85,7 @@ angular.module('starter', ['ionic','backand', 'starter.controllers' , 'starter.s
 
 
   .state('app.dashboard', {
+    cache: false,
     url: '/dashboard',
     views: {
       'menuContent': {
