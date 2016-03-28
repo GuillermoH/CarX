@@ -32,7 +32,6 @@
                       <ion-item>{{ x.ee }}</ion-item>
                     </ion-list>
                   </ion-item>
-                  <ion-item>fecha de ingreso: {{items.fecha_ingreso | date: 'dd/mm/yy' }}</ion-item>
                   <ion-item ng-if="items.status == 'e'"> Estado: En espera </ion-item>
                   <ion-item ng-if="items.status == 'l'"> Estado: Listo </ion-item>
                   <ion-item ng-if="items.status == 'p'"> Estado: Procesando </ion-item>
