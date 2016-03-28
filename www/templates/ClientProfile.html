@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<ion-view view-title="Perfil" hide-back-button="true" >
+  <ion-nav-buttons side="right" >
+    <button class="button" ng-click="logout()">Log out</button>
+  </ion-nav-buttons>
+  <ion-pane ng-controller="ClientesCtrl">
+    <ion-content class="has-footer" ng-init="getProfile(getId()); getPhone(getId()); getEmails(getId())">
+      <ion-list can-swipe="false">
+        <ion-item ng-repeat="items in profileById" >
+
+            <div class="list card">
+
+              <div class="item ">
+                <h2>{{items.nombre}}</h2>
+              </div>
+
+              <div class="item item-body">
+                <img class="full-image" src="{{items.img_url}}">
+
+                <ion-list>
+                  <ion-item>Modelo: {{items.Modelo}}</ion-item>
+                  <ion-item>Año: {{items.ano | date: 'yyyy' }}</ion-item>
+                  <ion-item>Dueño: {{items.nombre}}</ion-item>
+                  <ion-item>Placa: {{items.placa}} </ion-item>
+                  <ion-item> Teléfono(s):
+                    <ion-list ng-repeat="p in phone" >
+                      <ion-item>{{ p.telefono }}</ion-item>
+                    </ion-list>
+                  </ion-item>
+                  <ion-item>E-mail(s):
+                    <ion-list ng-repeat="x in emails">
+                      <ion-item>{{ x.ee }}</ion-item>
+                    </ion-list>
+                  </ion-item>
+                  <ion-item>fecha de ingreso: {{items.fecha_ingreso | date: 'dd/mm/yy' }}</ion-item>
+                  <ion-item ng-if="items.status == 'e'"> Estado: En espera </ion-item>
+                  <ion-item ng-if="items.status == 'l'"> Estado: Listo </ion-item>
+                  <ion-item ng-if="items.status == 'p'"> Estado: Procesando </ion-item>
+
+                </ion-list>
+                <p>
+                  <a href="#" class="subdued">{{items.listo}} Arreglo listo</a>
+                  <a href="#" class="subdued">{{items.nolisto}} Arreglos por terminar</a>
+                </p>
+              </div>
+
+              <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="#"> <i class="icon ion-iphone"></i> Llamar al taller </a>
+                <a class="tab-item" href="#"> <i class="icon ion-at"></i> E-mail al taller</a>
+                <a class="tab-item" href="#"> <i class="icon ion-chatbox-working"></i>Chat</a>
+              </div>
+
+            </div>
+
+
+        </ion-item>
+      </ion-list>
+    </ion-content>
+
+    <!--footer-->
+    <div class="bar bar-footer bar-clear">
+      <div class="row">
+        <div class="col"></div>
+        <a class="col col-50 col-center button  button-outline button-stable" href="#/app/ViewRepairs">Ver Reparaciones</a>
+        <div class="col"></div>
+      </div>
+    </div>
+    <!--end footer-->
+  </ion-pane>
+
+</ion-view>

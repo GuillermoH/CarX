@@ -1,0 +1,20 @@
+<ion-view view-title="Reparaciones" hide-back-button="false">
+
+  <ion-pane ng-controller="ReparacionesCtrl">
+
+    <ion-content ng-init="getReparaciones(getId())">
+      <div>
+        <ion-list>
+          <ion-item  ng-repeat="items in Reparaciones" class="item item-icon-right">
+                  {{items.descripcion}} <p>{{ items.costo }}</p>
+                <button ng-if="items.status == false" class="icon button-icon ion-android-checkbox-outline-blank assertive "></button>
+                <button ng-if="items.status == true" class="icon button-icon ion-android-checkbox-outline balanced "></button>
+          </ion-item>
+        </ion-list>
+      </div>
+
+    </ion-content>
+  </ion-pane>
+
+
+</ion-view>
