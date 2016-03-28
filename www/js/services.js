@@ -164,7 +164,6 @@ angular.module('starter.services', [])
   //};
 
   getProfile = function(id){
-    console.log('entro en geetCarro');
     return $http ({
       method: 'GET',
       url: Backand.getApiUrl() + '/1/query/data/getProfile',
@@ -266,7 +265,6 @@ angular.module('starter.services', [])
 
   insertClient = function(nombre, apellido, ced, email, telefono, modelo, placa, ano){
 
-    console.log('nombre dentro de service'+nombre);
     return $http ({
       method: 'GET',
       url: Backand.getApiUrl() + '/1/query/data/insertCliente',
@@ -305,7 +303,6 @@ angular.module('starter.services', [])
 
   /*------------------- Agregado por LeBerns 24/3 -----------------------------------------------------------*/
   insertRepair = function(descripcion, carro){
-    console.log("ID del carro-> "+carro + " mensaje "+descripcion);
     return $http ({
       method: 'GET',
       url: Backand.getApiUrl() + '/1/query/data/setRepair',
@@ -383,7 +380,6 @@ angular.module('starter.services', [])
 /*------------------ Agregado por LeBerns 24/3 ---------------------*/
 
   removeRepair = function(carro){
-    console.log("ID del carro --> "+carro);
     return $http ({
       method: 'GET',
       url: Backand.getApiUrl() + '/1/query/data/removeRepair',
