@@ -133,8 +133,6 @@ angular.module('starter.controllers', [])
         ClientesService.deleteCarro(id).then(function(result){
             $scope.getCarros(1);
         });
-<<<<<<< HEAD
-=======
     };
 
     $scope.addEmail = function (id, email) {
@@ -159,7 +157,6 @@ angular.module('starter.controllers', [])
             $scope.getProfile(id);
         })
 
->>>>>>> refs/remotes/origin/master
     }
     //
     //getCarros();
