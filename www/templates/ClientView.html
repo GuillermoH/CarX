@@ -1,11 +1,7 @@
-<ion-view  view-title="Perfil" hide-back-button="true" >
-  <ion-nav-buttons ng-controller="ClientesCtrl" side="right" ng-init="setStatus(false)"> <!-- Agregado de Boton addClient LeBEEEEERNS -->
-    <button id="editClient" class="button button-icon button-clear ion-android-create"  ng-click="setStatus(true)" ng-if="getStatus() == false"></button>
-    <button class="button"  ng-click="setStatus(false)" ng-if="getStatus() == true">Terminar</button>
-
-  </ion-nav-buttons>
-  <ion-nav-buttons ng-controller="ReparacionesCtrl" side="left" > <!-- Agregado de Boton addClient LeBEEEEERNS -->
-    <a class="button button-icon ion-ios-arrow-back" ng-click="setStatus(1)" href="#/app/dashboard"></a>
+<!DOCTYPE html>
+<ion-view view-title="Perfil" hide-back-button="false" >
+  <ion-nav-buttons side="right" > <!-- Agregado de Boton addClient LeBEEEEERNS -->
+    <a id="editClient" class="button button-icon button-clear ion-android-create"  href=""></a>
   </ion-nav-buttons>
   <ion-pane ng-controller="ClientesCtrl">
     <ion-content ng-init="getProfile(getId()); getPhone(getId()); getEmails(getId())">
@@ -14,18 +10,17 @@
 
             <div class="list card">
 
-              <div class="item item-button-right">
+              <div class="item ">
                 <h2>{{items.nombre}}</h2>
-                <a class="button" href="#/app/EditRepairs"> Reparaciones </a>
               </div>
 
               <div class="item item-body">
                 <img class="full-image" src="{{items.img_url}}">
 
-                <ion-list ng-if="getStatus() == false">
+                <ion-list>
                   <ion-item>Modelo: {{items.Modelo}}</ion-item>
-                  <ion-item>Año: {{items.ano | date: 'yyyy' }}</ion-item>
-                  <ion-item>Dueño: {{items.nombre}}</ion-item>
+                  <ion-item>Ano: {{items.ano | date: 'yyyy' }}</ion-item>
+                  <ion-item>Dueno: {{items.nombre}}</ion-item>
                   <ion-item>Placa: {{items.placa}} </ion-item>
                   <ion-item> Teléfono(s):
                     <ion-list ng-repeat="p in phone" >
@@ -37,54 +32,12 @@
                       <ion-item>{{ x.ee }}</ion-item>
                     </ion-list>
                   </ion-item>
-                  <ion-item ng-if="items.fecha_ingreso != null">fecha de ingreso: {{items.fecha_ingreso | date: 'dd/mm/yy' }}</ion-item>
-                  <ion-item ng-if="items.status == 'e'">
-                    <div class="button-bar">
-                      <a class="button button-assertive">En espera</a>
-                      <a class="button " ng-click="updateStatus(getId(), 'p')">Proc.</a>
-                      <a class="button" ng-click="updateStatus(getId(), 'l')">Listo</a>
-                    </div>
-                  </ion-item>
-                  <ion-item ng-if="items.status == 'p'">
-                    <div class="button-bar">
-                      <a class="button" ng-click="updateStatus(getId(), 'e')">En espera</a>
-                      <a class="button button-energized">Proc.</a>
-                      <a class="button" ng-click="updateStatus(getId(), 'l')">Listo</a>
-                    </div>
-                  </ion-item>
-                  <ion-item ng-if="items.status == 'l'">
-                    <div class="button-bar">
-                      <a class="button" ng-click="updateStatus(getId(), 'e')">En espera</a>
-                      <a class="button" ng-click="updateStatus(getId(), 'p')">Proc.</a>
-                      <a class="button button-balanced">Listo</a>
-                    </div>
-                  </ion-item>
+                  <ion-item>fecha de ingreso: {{items.fecha_ingreso | date: 'dd/mm/yy' }}</ion-item>
+                  <ion-item ng-if="items.status == 'e'"> Estado: En espera </ion-item>
+                  <ion-item ng-if="items.status == 'l'"> Estado: Listo </ion-item>
+                  <ion-item ng-if="items.status == 'p'"> Estado: Procesando </ion-item>
 
                 </ion-list>
-                <form ng-if="getStatus() == true">
-                  <div class="list list-inset" >
-                    <label class="item item-input">
-                      <input type="text" ng-model="items.Modelo" placeholder="Modelo">
-                    </label>
-                    <label class="item item-input">
-                      <input type="text" ng-model="items.placa" placeholder="Placa">
-                    </label>
-                    <a type="submit" class="button button-block button-positive" ng-click="updateProfile(getId(), items.Modelo, items.placa); setStatus(false);"> Actualizar perfil </a>
-                    <!--<input type="submit" class="button button-block button-positive" value="Agregar reparaciones">-->
-                  </div>
-                </form>
-                <form class="item item-input-inset" ng-if="getStatus() == true">
-                  <label class="item-input-wrapper">
-                    <input type="text" ng-model="email" placeholder="  Agregar E-mail" >
-                  </label>
-                  <button class="icon button-icon ion-android-add-circle balanced " ng-click="addEmail(getId(), email); email = '' "></button>
-                </form>
-                <form class="item item-input-inset" ng-if="getStatus() == true">
-                  <label class="item-input-wrapper">
-                    <input type="text" ng-model="telf" placeholder="  Agregar Telefono" >
-                  </label>
-                  <button class="icon button-icon ion-android-add-circle balanced " ng-click="addPhone(getId(), telf); telf='' "></button>
-                </form>
                 <p>
                   <a href="#" class="subdued">{{items.listo}} Arreglo listo</a>
                   <a href="#" class="subdued">{{items.nolisto}} Arreglos por terminar</a>

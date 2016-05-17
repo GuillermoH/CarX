@@ -41,14 +41,6 @@ angular.module('starter', ['ionic','backand', 'starter.controllers' , 'starter.s
 		}
 	});
 
-  $ionicPlatform.registerBackButtonAction(function (event) {
-    if ($ionicHistory.currentStateName() === 'someStateName'){
-      event.preventDefault();
-    } else {
-      $ionicHistory.goBack();
-    }
-  }, 100);
-
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -85,7 +77,6 @@ angular.module('starter', ['ionic','backand', 'starter.controllers' , 'starter.s
 
 
   .state('app.dashboard', {
-    cache: false,
     url: '/dashboard',
     views: {
       'menuContent': {
@@ -96,34 +87,6 @@ angular.module('starter', ['ionic','backand', 'starter.controllers' , 'starter.s
 	 authStatus: true
   })
 
-  .state('app.ClientProfile', {
-    url: '/ClientProfile',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/ClientProfile.html'
-      }
-    },
-    authStatus: true
-  })
-  .state('app.ViewRepairs', {
-    url: '/ViewRepairs',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/ViewRepairs.html'
-      }
-    },
-    authStatus: true
-  })
-  .state('app.EditRepairs', {
-    cache: false,
-    url: '/EditRepairs',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/EditRepairs.html'
-      }
-    },
-    authStatus: true
-  })
 
     .state('app.profiles', {
       url: '/profiles',
@@ -136,52 +99,44 @@ angular.module('starter', ['ionic','backand', 'starter.controllers' , 'starter.s
     })
 
     .state('app.carsview', {    //Agregue ITEM a la lista del menu linkeado a la clase menu.html y controller.js
-      cache: false,
       url: '/carsview',
       views: {
         'menuContent': {
           templateUrl: 'templates/CarsView.html',
-          controller: 'DashCtrl'
+          controller: 'ClientesCtrl'
         }
-      },
-      authStatus: true
+      }
     })
 
     // ---------AGREGADO POR BERNI------------
     .state('app.clientview', {
-      cache: false,
       url: '/clientview',
       views: {
         'menuContent': {
           templateUrl: 'templates/ClientView.html',
           controller: 'ClientesCtrl'
         }
-      },
-      authStatus: true
+      }
     })
 
     .state('app.addClientView',{
-      cache: false,
       url: '/addClientView',
       views:{
         'menuContent':{
           templateUrl: 'templates/CreateClient.html',
           controller: 'ClientesCtrl'
         }
-      },
-      authStatus: true
+      }
     })
 
     .state('app.addRepair',{
-      cache: false,
       url:'/addRepair',
       views:{
         'menuContent':{
           templateUrl: 'templates/CreateRepairs.html',
           controller: 'ClientesCtrl'
         }
-      },
-      authStatus: true
+      }
     })
 
   .state('app.profile', {

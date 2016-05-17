@@ -1,9 +1,10 @@
-<ion-view view-title="Repairs" hide-back-button="true">
+<ion-view view-title="Repairs" hide-back-button="false">
 
   <ion-pane ng-controller="ReparacionesCtrl">
 
-    <ion-content class="has-footer">
+    <ion-content class="has-footer" ng-init="getReparaciones(getId())">
       <div>
+        <h1>ID: {{ getId() }}</h1>
         <form class="item item-input-inset" >
           <label class="item-input-wrapper">
           <input type="text" ng-model="rep.reparacion" placeholder="  Ej: Base del motor" >
@@ -27,7 +28,7 @@
     <div class="bar bar-footer bar-clear">
       <div class="row">
         <div class="col"></div>
-        <a class="col col-50 col-center button  button-outline button-stable" ng-click="setStatus(1)" href="#/app/dashboard">Terminar</a>
+        <a class="col col-50 col-center button  button-positive" ng-click="setStatus(1)" href="#/app/carsview">Terminar</a>
         <div class="col"></div>
       </div>
 

@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $ionicPopover, $timeout,  $location, $ionicPopup, $ionicHistory ,loginService, idService) {
+.controller('AppCtrl', function($scope, $ionicModal, $ionicPopover, $timeout,  $location, $ionicPopup) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -20,46 +20,15 @@ angular.module('starter.controllers', [])
 			return false;
 		}
 
-		if(user.username=='demo' && user.password=='demo'){
+		if(user.username=='1234' /*&& user.password=='demo'*/){
 			$location.path('/app/dashboard');
 		}else{
-			$scope.showAlert('Usuario o clave inválida.');
+			$scope.showAlert('Usuario inválido.');
 		}
 
-       $ionicHistory.clearHistory();
-
 	};
-
-    $scope.loginClient = function(user){
-        loginService.validateLogin(user.placa).then(function(result){
-            if(result.data.length > 0){
-                $scope.setId(result.data[0].id);
-                $location.path('/app/ClientProfile');
-            }else {
-                $scope.showAlert('Placa no existente en nuestra base de datos');
-            }
-        })
-
-
-        $ionicHistory.clearHistory();
-    };
-
-    $scope.setId = function(carId){
-        idService.updateId(carId);
-    };
-
-    $scope.getId = function(){
-        return idService.getId();
-    };
   //--------------------------------------------
-  $scope.logout = function() {
-      $scope.setId(null);
-      $ionicHistory.clearCache();
-      $ionicHistory.clearHistory();
-      document.location.href = 'index.html';
-      //$location.path('/app/login');
-
-  };
+  $scope.logout = function() {   $location.path('/app/login');   };
   //--------------------------------------------
    // An alert dialog
 	 $scope.showAlert = function(msg) {
@@ -83,7 +52,7 @@ angular.module('starter.controllers', [])
 	$scope.profiles = Profiles.all();
 })
 
-.controller('ClientesCtrl', function($scope, $window, $location, ClientesService, idService, statusService){
+.controller('ClientesCtrl', function($scope, $window, ClientesService, idService, statusService){
     $scope.carros = [];
     $scope.profileById = [];
     $scope.phone = [];
@@ -118,9 +87,6 @@ angular.module('starter.controllers', [])
     $scope.setStatus = function(status){
 
         statusService.updateStatus(status);
-
-
-
 
     };
 
@@ -161,12 +127,13 @@ angular.module('starter.controllers', [])
         ClientesService.getProfile(id).then(function(result){
             $scope.profileById = result.data;
         });
-    };
+    }
 
     $scope.deleteCarro = function (id) {
         ClientesService.deleteCarro(id).then(function(result){
             $scope.getCarros(1);
         });
+<<<<<<< HEAD
     };
 
     $scope.addEmail = function (id, email) {
@@ -191,7 +158,11 @@ angular.module('starter.controllers', [])
             $scope.getProfile(id);
         })
 
+=======
+>>>>>>> refs/remotes/origin/BERNARD
     }
+    //
+    //getCarros();
 })
 
 //---------- Agregado Berni 21/3------------------------ Pop Up CEDULA -----------------------------------
@@ -292,12 +263,6 @@ angular.module('starter.controllers', [])
         });
     };
 
-    $scope.updateStatusR = function (id, status){
-        CreateService.updateStatusR(id, status).then(function (result){
-            $scope.getReparaciones($scope.getId());
-        });
-    };
-
     $scope.setId = function(carId){
       idService.updateId(carId);
     };
@@ -310,6 +275,7 @@ angular.module('starter.controllers', [])
       statusService.updateStatus(status);
 
     };
-  });
+
+  })
 
 

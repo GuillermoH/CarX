@@ -181,59 +181,6 @@ angular.module('starter.services', [])
     return $http.delete(getUrlForId(id));
   };
 
-  addEmail = function(id, email){
-    return $http ({
-      method: 'GET',
-      url: Backand.getApiUrl() + '/1/query/data/addEmail',
-      params: {
-        parameters: {
-          id: id,
-          email: email
-        }
-      }
-    });
-  };
-
-  addPhone = function (id, telf) {
-    return $http ({
-      method: 'GET',
-      url: Backand.getApiUrl() + '/1/query/data/addPhone',
-      params: {
-        parameters: {
-          id: id,
-          telefono: parseInt(telf)
-        }
-      }
-    });
-  };
-  
-  updateProfile = function (id, modelo, placa) {
-    return $http ({
-      method: 'GET',
-      url: Backand.getApiUrl() + '/1/query/data/updateProfile',
-      params: {
-        parameters: {
-          id: id,
-          modelo: modelo,
-          placa: placa
-        }
-      }
-    });
-  };
-
-  updateStatus = function (id, status) {
-    return $http ({
-      method: 'GET',
-      url: Backand.getApiUrl() + '/1/query/data/updateStatus',
-      params: {
-        parameters: {
-          id: id,
-          status: status
-        }
-      }
-    });
-  };
-
   return {
     getAllCarros: getAllCarros,
     getSomeCarros: getSomeCarros,
@@ -241,11 +188,7 @@ angular.module('starter.services', [])
     getPhone: getPhone,
     getEmails: getEmails,
     getNum: getNum,
-    deleteCarro: deleteCarro,
-    addEmail: addEmail,
-    addPhone: addPhone,
-    updateProfile: updateProfile,
-    updateStatus: updateStatus
+    deleteCarro: deleteCarro
   }
 })
 
@@ -328,52 +271,16 @@ angular.module('starter.services', [])
     });
   };
 
-  updateStatusR =function(id, status){
-    return $http ({
-      method: 'GET',
-      url: Backand.getApiUrl() + '/1/query/data/updateRepStatus',
-      params: {
-        parameters: {
-          id: id,
-          status: status
-        }
-      }
-    });
-  };
-
   return{
     verifyCed: verifyCed,
     insertClient: insertClient,
     insertCarro: insertCarro,
     insertRepair : insertRepair,
-    getReparaciones: getReparaciones,
-    updateStatusR: updateStatusR
-
+    getReparaciones: getReparaciones
   }
 
 
 })
-
-.service('loginService',function($http, Backand){
-
-  validateLogin = function (placa) {
-    return $http ({
-      method: 'GET',
-      url: Backand.getApiUrl() + '/1/query/data/getClientId',
-      params: {
-        parameters: {
-          placa: placa
-        }
-      }
-    });
-  };
-
-
-  return {
-    validateLogin: validateLogin
-  }
-})
-
 
 .service('DeleteService',function($http, Backand){
 
