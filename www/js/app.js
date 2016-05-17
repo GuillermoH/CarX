@@ -32,9 +32,9 @@ angular.module('starter', ['ionic','backand', 'starter.controllers' , 'starter.s
     });
 
 	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
-		console.log("URL : "+toState.url);
+
 		if(toState.url=='/dashboard'){
-			console.log("match : "+toState.url);
+
 			$timeout(function(){
 				angular.element(document.querySelector('#leftMenu' )).removeClass("hide");
 			},1000);

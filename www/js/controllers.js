@@ -64,10 +64,8 @@ angular.module('starter.controllers', [])
 
 
     $scope.getCarros = function (status){
-        console.log('entro en getCarros'+status);
         if (status == 1){
             ClientesService.getAllCarros().then(function(result){
-                console.log(result.data);
                 $scope.carros = result.data;
             });
         }else if (status == 2){
@@ -87,7 +85,7 @@ angular.module('starter.controllers', [])
     };
 
     $scope.setStatus = function(status){
-        console.log(status);
+
         statusService.updateStatus(status);
 
     };
@@ -126,10 +124,7 @@ angular.module('starter.controllers', [])
 
 
     $scope.getProfile = function (id) {
-        console.log("este es el id "+id);
         ClientesService.getProfile(id).then(function(result){
-            console.log('entro');
-            console.log(result.data);
             $scope.profileById = result.data;
         });
     }
@@ -138,6 +133,33 @@ angular.module('starter.controllers', [])
         ClientesService.deleteCarro(id).then(function(result){
             $scope.getCarros(1);
         });
+<<<<<<< HEAD
+=======
+    };
+
+    $scope.addEmail = function (id, email) {
+        ClientesService.addEmail(id, email).then(function (result) {
+            $scope.getEmails(id);
+
+        })
+    };
+    $scope.addPhone = function (id, telf) {
+        ClientesService.addPhone(id, telf).then(function (result) {
+            $scope.getPhone(id);
+        })
+    };
+    $scope.updateProfile = function (id, modelo, placa) {
+        ClientesService.updateProfile(id, modelo, placa).then(function (result) {
+            $scope.getProfile(id);
+
+        });
+    };
+    $scope.updateStatus = function (id, status) {
+        ClientesService.updateStatus(id, status).then(function (result) {
+            $scope.getProfile(id);
+        })
+
+>>>>>>> refs/remotes/origin/master
     }
     //
     //getCarros();
@@ -160,7 +182,6 @@ angular.module('starter.controllers', [])
             text: '<b>Introducir</b>',
             type: 'button-positive',
               onTap:function(){
-                  console.log("la ced es:" + $scope.user.cedula);
                     $scope.verifyCed($scope.user.cedula);
               }
           }]
@@ -169,7 +190,6 @@ angular.module('starter.controllers', [])
 
     $scope.verifyCed = function(ced){
         CreateService.verifyCed(ced).then(function(result){
-            console.log(result.data);
             if(result.data.length > 0){
                 $scope.userStatus = true;
                 $scope.user.nombre = result.data[0].pNombre;
@@ -185,16 +205,14 @@ angular.module('starter.controllers', [])
     };
 
     $scope.insertClient = function(user){
-        console.log(user.nombre+"este el el nombre");
         CreateService.insertClient(user.nombre, user.apellido, user.cedula, user.email, user.telefono, user.modelo, user.placa, user.ano).then(function(result){
-            console.log("id devuelto por insertcliente "+result.data[0].id)
+
             $scope.user.id = result.data[0].id;
             $scope.setId(result.data[0].id);
         });
     };
 
     $scope.insertCarro = function(user){
-        console.log (user);
 
         CreateService.insertCarro(user.modelo, user.placa, user.ano, user.id).then(function(result){
             $scope.user.id = result.data[0].id;
@@ -225,7 +243,6 @@ angular.module('starter.controllers', [])
 
     /*--------------------------- Agregado por LeBerns 24/3 ---------------------------------------------*/
     $scope.insertRepair = function(rep, id){
-      console.log("La reparacion a insertar es -> "+ rep+(typeof rep)+" en "+id+ (typeof id));
       CreateService.insertRepair(rep.reparacion, id ).then(function(){
         $scope.getReparaciones(id);
           $scope.rep.reparacion = "";
@@ -242,7 +259,6 @@ angular.module('starter.controllers', [])
 
     $scope.getReparaciones = function (id){
         CreateService.getReparaciones(id).then(function (result) {
-            console.log(result.data);
             $scope.Reparaciones = result.data;
         });
     };
