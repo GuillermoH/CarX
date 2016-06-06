@@ -20,10 +20,10 @@ angular.module('starter.controllers', [])
 			return false;
 		}
 
-		if(user.username=='demo' && user.password=='demo'){
+		if(user.username=='1234' /*&& user.password=='demo'*/){
 			$location.path('/app/dashboard');
 		}else{
-			$scope.showAlert('Usuario o clave inválida.');
+			$scope.showAlert('Usuario invalido.');
 		}
 
        $ionicHistory.clearHistory();
