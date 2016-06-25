@@ -265,7 +265,7 @@ angular.module('starter.controllers', [])
 })
 
   //------------------------------ Agregado LeBeeeeeeerns 22/3 --------------------------------------------------------
-  .controller('ReparacionesCtrl', function($scope, CreateService, DeleteService, idService, statusService){
+  .controller('ReparacionesCtrl', function($scope, CreateService, DeleteService, idService, statusService, $ionicHistory){
 
       $scope.Reparaciones = [];
       $scope.rep = {};
@@ -310,6 +310,11 @@ angular.module('starter.controllers', [])
       statusService.updateStatus(status);
 
     };
+
+    $scope.Regresar = function()
+    {
+      $ionicHistory.goBack();
+    }
   });
 
 
