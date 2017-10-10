@@ -20,10 +20,10 @@ angular.module('starter.controllers', [])
 			return false;
 		}
 
-		if(user.username=='demo' && user.password=='demo'){
+		if(user.username=='1234' /*&& user.password=='demo'*/){
 			$location.path('/app/dashboard');
 		}else{
-			$scope.showAlert('Usuario o clave inválida.');
+			$scope.showAlert('Usuario invalido.');
 		}
 
        $ionicHistory.clearHistory();
@@ -265,7 +265,7 @@ angular.module('starter.controllers', [])
 })
 
   //------------------------------ Agregado LeBeeeeeeerns 22/3 --------------------------------------------------------
-  .controller('ReparacionesCtrl', function($scope, CreateService, DeleteService, idService, statusService){
+  .controller('ReparacionesCtrl', function($scope, CreateService, DeleteService, idService, statusService, $ionicHistory){
 
       $scope.Reparaciones = [];
       $scope.rep = {};
@@ -310,6 +310,11 @@ angular.module('starter.controllers', [])
       statusService.updateStatus(status);
 
     };
+
+    $scope.Regresar = function()
+    {
+      $ionicHistory.goBack();
+    }
   });
 
 
