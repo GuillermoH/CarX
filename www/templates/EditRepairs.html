@@ -21,7 +21,7 @@
             <button ng-if="items.status == false" ng-click="updateStatusR(items.id, true)" class="icon button-icon ion-android-checkbox-outline-blank assertive "></button>
             <button ng-if="items.status == true" ng-click="updateStatusR(items.id, false)" class="icon button-icon ion-android-checkbox-outline balanced "></button>
 
-            <ion-option-button class="button-assertive" ng-click="deleteReparacion(items.id)" >Borrar</ion-option-button>
+            <!--<ion-option-button class="button-assertive" ng-click="deleteReparacion(items.id)" >Borrar</ion-option-button>-->
           </ion-item>
         </ion-list>
       </div>
@@ -30,7 +30,7 @@
     <div class="bar bar-footer bar-clear">
       <div class="row">
         <div class="col"></div>
-        <a class="col col-50 col-center button  button-outline button-stable" href="#/app/dashboard">Terminar</a>
+        <a class="col col-50 col-center button  button-outline button-stable" ng-click="Regresar()">Regresar</a>
         <div class="col"></div>
       </div>
 
